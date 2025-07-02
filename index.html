@@ -11,6 +11,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <style>
+            
             .n_foot{
                 font-size: 2px;
             }
@@ -27,7 +28,7 @@
                 font-style: normal;
             }
             header{
-                height:82px;
+                height:80px;
             }
             main{
                 min-height: 2500px;
@@ -54,6 +55,7 @@
             .n_slidear{
                 width:40;
             }
+            
             body {
                 background-color: #f5f5f5;
             }
@@ -79,6 +81,12 @@
                 object-fit: cover;
                 margin-bottom: 8px;
             }
+            .invisible-hide {
+                visibility: hidden !important;
+                opacity: 0 !important;
+                pointer-events: none;
+            }
+
             .category-item p {
                 font-size: 14px;
                 margin-bottom: 0;
@@ -188,17 +196,16 @@
     <body>
         <div class="container-fluid p-4 pt-0 pb-0 n_tbdr">
             <header class="n_tbdr fixed-top bg-white" >
-                <div class="row m-0 h-100">
-                    <div class="col-2 p-0 n_tbdr">
+                <div class="row m-0 h-100 ">
+                    <div class="col-2 p-0 n_tbdr ">
                          <img src="./img/WhatsApp Image 2025-06-30 at 12.13.01 PM.jpeg" alt="Website Banner" />
                     </div>
                     <br>
                     <br>
-                    <div class="col-3 p-0 n_tbdr"></div>
-                    <div class="col-7 p-0 n_tbdr d-flex align-items-center">
+                    <div class="col-10 p-0 n_tbdr d-flex align-items-center">
                         <ul class="nav">
                             <li class="nav-item ">
-                                <div class="dropdown n_dropdown">
+                                <div class="dropdown n_dropdown n_wearehiring d-flex">
                                     <button class="btn dropdown-toggle text-primary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-language text-primary"></i> En
                                     </button>
@@ -213,8 +220,16 @@
                                     </ul>
                                 </div>
                             </li>
+                             <li class="nav-item">
+                                <button type="button" class="btn"><a class="nav-link text-black n_wearehiring d-flex" href="#">We Are Hiring</a></button>
+                            </li>
                             <li class="nav-item">
-                                <button type="button" class="btn"><a class="nav-link text-black" href="#">Investor Relations</a></button>
+                                <button type="button" class="btn"><a class="nav-link text-black n_wearehiring d-flex" href="#">Investor Relations</a></button>
+                            </li>
+                             <li class="nav-item">
+                                <button type="button" class="btn"><a class="nav-link text-black" href="#">Advertise
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </a></button>
                             </li>
                             <li class="nav-item">
                                 <button type="button" class="btn"><a class="nav-link text-black" href="#"><i class="fa-solid fa-chart-line"></i> Free Listing</a></button>
@@ -225,7 +240,7 @@
                                 </a></button>
                             </li>
                             <li class="nav-item n_dropdown">
-                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Log-In / Sign-Up
+                                <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Log-In / Sign-Up
                                     <i class="fa-regular fa-circle-user"></i>
                                 </button>
                                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -340,15 +355,24 @@
                     Search across <span class="fw-bold">'5.9 Crore+'</span> <span class="highlight-blue">Products &amp; Services</span>
                 </h2>
                 <div class="dropdown n_dropdown2">
-                     <!-- Justdial Logo and Search -->
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <div class="d-flex gap-2 flex-grow-1 ms-3">
-                            <input type="text" class="form-control w-25 search-input" placeholder="📍 Mumbai">
-                            <input type="text" class="form-control w-50 search-input" placeholder="Search for Packers and Movers">
-                            <button class="btn btn-primary px-3">🔍</button>
+                    <!-- Sticky Header Search -->
+                    <div class="container">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-12 col-md-3">
+                            <input type="text" class="form-control" placeholder="📍 Location">
+                            </div>
+                            <div class="col-12 col-md-6">
+                            <input type="text" class="form-control" placeholder="Search for services">
+                            </div>
+                            <div class="col-6 col-md-1">
+                            <button class="btn btn-outline-secondary w-100"><i class="fa-solid fa-microphone"></i></button>
+                            </div>
+                            <div class="col-6 col-md-2">
+                            <button class="btn btn-primary w-100"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                            </div>
                         </div>
-                    </div>       
-                </div>   
+                        </div>
+   
 
                 <div class="container mt-3 n_slide">
                 <div class="row overflow-hidden n_slide rounded-2 img-fluid">
@@ -377,12 +401,13 @@
                     </div>
 
                     <!-- Category Cards -->
+
                     <div class="col-md-6 n_slide">
                     <div class="d-flex gap-3 mb-4 scroll-x">
 
                         <!-- B2B -->
-                        <div class="category-card  n_cards text-white text-center position-relative overflow-hidden" style="background-image: url('https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/b2b_square_hotkey.webp?w=2048&q=75'); background-size: cover; background-position: center;">
-                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.5);"></div>
+                        <div class="category-card  n_cards text-white text-center position-relative overflow-hidden" style="background-image: url('https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/b2b_square_hotkey.webp?w=2048&q=75'); background-size: cover; background-position: right;">
+                        <div class="position-absolute top-0 start-0 w-84 h-100" style="background: color rgba(14, 119, 205, 0.6);"></div>
                         <div class="position-relative">
                             <h6>B2B</h6>
                             <small>Quick Quotes</small>
@@ -390,8 +415,8 @@
                         </div>
 
                         <!-- Repairs & Services -->
-                        <div class="category-card n_cards text-white text-center position-relative overflow-hidden" style="background-image: url('https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/repair_square_hotkey.webp?w=2048&q=75'); background-size: cover; background-position: center;">
-                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.5);"></div>
+                        <div class="category-card n_cards text-white text-center position-relative overflow-hidden" style="background-image: url('https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/repair_square_hotkey.webp?w=2048&q=75'); background-size: cover; background-position: right;">
+                        <div class="position-absolute top-0 start-0 w-84 h-100" style="background-color:  rgba(14, 119, 205, 0.6);"></div>
                         <div class="position-relative">
                             <h6>REPAIRS & SERVICES</h6>
                             <small>Get Nearest Vendor</small>
@@ -399,8 +424,8 @@
                         </div>
 
                         <!-- Real Estate -->
-                        <div class="category-card n_cards text-white text-center position-relative overflow-hidden" style="background-image: url('https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/realestate_square_hotkey.webp?w=2048&q=75'); background-size: cover; background-position: center;">
-                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.5);"></div>
+                        <div class="category-card n_cards text-white text-center position-relative overflow-hidden" style="background-image: url('https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/realestate_square_hotkey.webp?w=2048&q=75'); background-size: cover; background-position: right;">
+                        <div class="position-absolute top-0 start-0 w-84 h-100" style="background-color: rgba(14, 119, 205, 0.6);"></div>
                         <div class="position-relative">
                             <h6>REAL ESTATE</h6>
                             <small>Finest Agents</small>
@@ -408,8 +433,8 @@
                         </div>
 
                         <!-- Doctors -->
-                        <div class="category-card n_cards text-white text-center position-relative overflow-hidden" style="background-image: url('https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/doctor_square_hotkey.webp?w=2048&q=75'); background-size: cover; background-position: center;">
-                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.5);"></div>
+                        <div class="category-card n_cards text-white text-center position-relative overflow-hidden" style="background-image: url('https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/doctor_square_hotkey.webp?w=2048&q=75'); background-size: cover; background-position: right;">
+                        <div class="position-absolute top-0 start-0 w-84 h-100" style="background-color:  rgba(14, 119, 205, 0.6);"></div>
                         <div class="position-relative">
                             <h6>DOCTORS</h6>
                             <small>Book Now</small>
@@ -1561,7 +1586,29 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script>
-            
+            window.addEventListener("scroll", () => {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const windowHeight = window.innerHeight;
+                const docHeight = document.documentElement.scrollHeight;
+
+                const scrollPercent = (scrollTop / (docHeight - windowHeight)) * 100;
+
+                const elements = document.querySelectorAll('.n_wearehiring');
+
+                elements.forEach(element => {
+                if (scrollPercent >= 2) {
+                    if (!element.classList.contains("invisible-hide")) {
+                    element.classList.add("invisible-hide");
+                    console.log("Fading out at 2%");
+                    }
+                } else {
+                    if (element.classList.contains("invisible-hide")) {
+                    element.classList.remove("invisible-hide");
+                    console.log("Fading in below 2%");
+                    }
+                }
+                });
+            });
         </script>
     </body>
 </html>
