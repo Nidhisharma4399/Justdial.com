@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Find Businesses Near You on Local Search Engine - Justdial</title>
+        <link rel="icon" href="./favicon.ico">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <style>
+              /* Container for vertical buttons */
+            .vertical-buttons {
+                position: fixed; transform: rotate(180deg);
+                color: white;
+                border-radius:8px 0 0 8px;
+                top: 40%;
+                right: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                z-index: 1000;
+                user-select: none;
+            }
+
+            /* Each button style */
+                .side-button {
+                border-radius:0 8px 8px 0;
+                writing-mode:vertical-rl;
+                text-orientation: mixed;
+                padding: 4px 6px;
+                border-color: transparent;
+                font-weight: 600;
+                font-size: 14px;
+                color: white;
+                cursor: pointer;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                white-space: nowrap;
+                letter-spacing: 0.05em;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100px;
+                user-select: none;
+            }
+
+            /* Advertise button (red) */
+                .advertise {
+                background: linear-gradient(135deg, red,red);
+            }
+            .advertise:hover {
+                background: linear-gradient(135deg, red, red);
+            }
+
+            /* Free Listing button (blue) */
+                .free-listing {
+                background: linear-gradient(135deg, #007bff, #007bff);
+            }
+
+            .free-listing:hover {
+                background: linear-gradient(135deg, #007bff, #007bff);
+            }
+
+            .location-wrapper {
+                display: inline-block; /* So it doesn't take full width */
+            }
+
+            .location-box {
+                width: 150px;; /* Box size */
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            .location-box .form-control {
+                border: none;
+                box-shadow: none;
+            }
+
+            .location-box .input-group-text {
+                background-color: white;
+                border: none;
+            }
+
+            .location-box,.search-box {
+                width: 180px;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                background-color: white;
+            }
+
+            .location-box .form-control,.search-box .form-control {
+                border: none;
+                box-shadow: none;
+            }
+             
+            .search-box {
+                width: 290px;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                background-color: white;      
+            }
+            
+            .search-box .form-control {
+                border: none;
+                box-shadow: none;
+            }
+
+            .n_foot{
+                font-size: 2px;
+            }
+            .n_tbdr{
+                border:1px dashed white;
+            }
+             body{
+                background-color: #E8E8E8;
+                font-family: "Poppins", sans-serif;
+                font-weight: 600;
+                font-style: normal;
+            }
+            header{
+                height:80px;
+            }
+            .header img{
+                height:2px;
+            }
+            footer{
+                height: 537px;
+            }
+             main{
+                min-height: 2500px;
+            }
+            .n_dropdown{
+                margin-top: 10px;
+            }
+            body {
+                background-color: #f5f5f5;
+            }
+              .webbanner img{
+                height: 32px;
+            }
+            p{
+                font-size: 12px;
+                color: gray;
+
+            }
+            .container-custom {
+                background-color: #d1d1d1; /* light grey background */
+                padding: 2rem;
+                min-height: 100vh;
+            }
+
+
+        </style>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid p-4 pt-0 pb-0 n_tbdr" >
+            <header id="header" class="n_tbdr fixed-top bg-white" >
+                <div class="row m-0 h-100">
+                    <div class="col-1 p-0 n_tbdr ">
+                         <img src="./img/WhatsApp Image 2025-07-05 at 1.10.16 PM.jpeg" class="webbanner" alt="Website Banner" />
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-11 p-0 n_tbdr d-flex align-items-center justify-content-end pe-3">
+                        <ul class="nav custom-header-links gap-0">
+                            <li class="nav-item">
+                                 <!-- This wrapper will move on scroll -->
+                                <div id="searchLocationWrapper" class="container d-flex gap-2 align-items-center py-2 flex-wrap">
+                                
+                                    <!-- 📍 Select Location Input -->
+                                    <div class="input-group location-box">
+                                        <span class="input-group-text">
+                                        <i class="fas fa-map-marker-alt text-primary"></i>
+                                        </span>
+                                        <input type="text" class="form-control" placeholder="Select Location">
+                                        </div>
+
+                                        <!-- 🔍 Search For Input with Icon -->
+                                        <div class="input-group search-box">
+                                            <span class="input-group-text bg-white border-end-0">
+                                            <i class="fas fa-search text-primary"></i>
+                                            </span>
+                                            <input type="text" id="searchInput" class="form-control border-start-0" placeholder="Search for Packers and Movers">
+                                        </div>
+
+                                </div>
+                            </li>
+                            <li class="nav-item ">
+                                <div class="dropdown n_wearehiring n_dropdown d-flex">
+                                    <button class="btn dropdown-toggle text-primary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-language text-primary"></i> En
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">English-EN</a></li>
+                                        <li><a class="dropdown-item" href="#">हिंदी - HI</a></li>
+                                        <li><a class="dropdown-item" href="#">मराठी - MR</a></li>
+                                        <li><a class="dropdown-item" href="#">বেঙ্গলি - BN</a></li>
+                                        <li><a class="dropdown-item" href="#">ગુજરાતી - GU</a></li>
+                                        <li><a class="dropdown-item" href="#">ಕನ್ನಡ - KN</a></li>
+                                        <li><a class="dropdown-item" href="#">தமிழ் - TA</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <button type="button" class="btn advertise_class me-1"><a class="nav-link text-black" href="#"> Advertise
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </a></button>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" class="btn freelisting"><a class="nav-link text-black" href="#"><i class="fa-solid fa-chart-line"></i> Free Listing</a></button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="btn btn-primary btn-sm n_dropdown" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Log-In / Sign-Up
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </header>
+            <main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="vertical-buttons" aria-label="Side vertical action buttons">
+                    <button class="side-button advertise" type="button" aria-label="Advertise">Advertise</button>
+                    <button class="side-button free-listing" type="button" aria-label="Free Listing">Free Listing</button>
+                </div>
+                 <br>
+                    <br>
+                   
+            </main>
+            
+            
+            <footer class="n_tbdr">
+                <div class="container my-5 n_foot">
+                     <section>
+                        <div class="social-icons d-flex justify-content-center">
+                            Follow us on: 
+                            <a href="https://www.facebook.com/JustDial"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.youtube.com/user/justdialind"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/jd_justdial"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/justdial"><i class="fab fa-linkedin"></i></a>
+                            <a href=""><i class="fab fa-x"></i></a>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="content">
+                            <h4>One-Stop for All Local Businesses, Services, & Stores Nearby Across India</h2>
+                            <p>Welcome to Justdial, your 'one stop shop' where you are assisted with day-to-day and exclusive planning and purchasing activities. We take pride in our iconic customer support number, 8888888888, and the fact that we own a strong hold on local business information pan India.</p>
+                            <p>Our service extends from providing address and contact details of business establishments around the country, to making orders and reservations for leisure, medical, financial, travel and domestic purposes. We enlist business information across varied sectors like Hotels, Restaurants, Auto Care, Home Decor, Personal and Pet Care, Fitness, Insurance, Real Estate, Sports, Schools, etc. from all over the country. Holding information right from major cities like Mumbai, Delhi, Bangalore, Hyderabad, Chennai, Ahmedabad and Pune our reach stretches out to other smaller cities across the country too.</p>
+                            <p>Our 'Free Listing' feature gives a platform to showcase varied specialities. We then furnish you with the information via phone, SMS, web, App and WAP as well as, create a space for you to share your experiences through our 'Rate & Review' feature. Through the 'Best Deals', 'Last Minute Deals' and 'Live Quotes', we make sure that you are offered the best bargains in the market.</p>
+                        </div>
+                    </section> 
+                    <h5 class="mb-4 fw-semibold">Some of our services that will prove useful to you on a day-to-day basis are :</h5>
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                        <!-- B2B -->
+                        <div class="col">
+                        <div class="service-box">
+                            <i class="fa-solid fa-handshake"></i>
+                            <h6 class="mt-2">B2B</h6>
+                            <p class="mb-0">Experience the ultimate B2B portal by Justdial. You can explore countless diverse categories, innumerable top-quality vendors, and an unmatched wholesale experience. You'll find everything you need for B2B requirements on this exclusive platform. Our interactive interface allows you to apply relevant filters, ascertain the best rates, and get instant assistance via chat.</p>
+                        </div>
+                        </div>
+
+                        <!-- All India -->
+                        <div class="col">
+                        <div class="service-box">
+                            <i class="fa-solid fa-globe-asia"></i>
+                            <h6 class="mt-2">All India</h6>
+                            <p class="mb-0">Elevate your search for B2B requisites. From lead generation to promoting and selling products/services, Justdial enables enterprises to reach vast audiences all across India. Embracing digital strategies, Justdial India encompasses manufacturers, dealers, suppliers, vendors, wholesalers, and more, offering convenience in the B2B market space and empowering businesses nationwide.</p>
+                        </div>
+                        </div>
+
+                        <!-- Packers and Movers -->
+                        <div class="col">
+                        <div class="service-box">
+                            <i class="fa-solid fa-truck-moving"></i>
+                            <h6 class="mt-2">Packers and Movers</h6>
+                            <p class="mb-0">If you’re relocating to another place, or even if you just want to send some belongings elsewhere, find the best deals on the most reliable packers and movers for your location. Get quotes from multiple agencies, read reviews from previous customers, and check ratings before making a selection for a hassle-free experience.</p>
+                        </div>
+                        </div>
+
+                        <!-- Order Food Online -->
+                        <div class="col">
+                        <div class="service-box">
+                            <i class="fa-solid fa-utensils"></i>
+                            <h6 class="mt-2">Order Food Online</h6>
+                            <p class="mb-0">You are just three clicks away from placing an order and exploring a wide range of exotic cuisines. Order food online with Justdial and get your favourite food delivered at your doorstep. Search for restaurants, view reviews and ratings, avail discounts and order your food.</p>
+                        </div>
+                        </div>
+
+                        <!-- Jobs -->
+                        <div class="col">
+                        <div class="service-box">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <h6 class="mt-2">Jobs</h6>
+                            <p class="mb-0">Providing pertinent jobs to job seekers and relevant profiles to employers, this service will help you reach out to employers and vice-versa across industry verticals, experience levels and geographies.</p>
+                        </div>
+                        </div>
+
+                        <!-- Movies -->
+                        <div class="col">
+                        <div class="service-box">
+                            <i class="fa-solid fa-film"></i>
+                            <h6 class="mt-2">Movies</h6>
+                            <p class="mb-0">This gives you access to book tickets and keep updated with the latest movies. With the provision of a synopsis, cast, crew and trailer, you can make a better choice in the movie you would like to watch.</p>
+                        </div>
+                        </div>
+
+                        <!-- Spa & Salon -->
+                        <div class="col">
+                        <div class="service-box">
+                            <i class="fa-solid fa-spa"></i>
+                            <h6 class="mt-2">Spa & Salon</h6>
+                            <p class="mb-0">Skip the wait to get pampered at a spa or a salon. In a few clicks, 'Book an Appointment' online through Justdial before your next visit.</p>
+                        </div>
+                        </div>
+
+                        <!-- Repair & Services -->
+                        <div class="col">
+                        <div class="service-box">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            <h6 class="mt-2">Repair & Services</h6>
+                            <p class="mb-0">Find the 'Best Deal', be it for repairing your air-conditioner, getting your car serviced or cleaning your water purifier and drive your utility problems away.</p>
+                        </div>
+                        </div>
+
+                        <!-- Doctor Appointment -->
+                        <div class="col">
+                        <div class="service-box">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            <h6 class="mt-2">Doctor Appointment</h6>
+                            <p class="mb-0">Find the suitable medical specialist to take care of your health and well-being. Healthcare made easy.</p>
+                        </div>
+                        </div>
+                        <br>
+                    </div>
+                        <p>Some of the other services that can be of assistance to you for leisure, health and home convenience are - Pest Control, Skin Care Clinics, Painters, Laundry Services, Interior Designers, Mobile Phone Repair, Vaccination Centres, Internet Service Providers, etc. With an endless number of things under the sun, you can be sure this will be your 'One Stop Shop' to find everything and more.</p>
+                </div>
+                <br>
+                <br>
+                <p>Copyrights 2008-25.  All Rights Reserved.PrivacyTermsInfringement</p>
+                <br>
+            </footer>
+        </body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+        </script>
+    </html>
+
+           
