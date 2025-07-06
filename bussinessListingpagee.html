@@ -3,12 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Justdial Food Clone</title>
+  <title>Discover Local Restaurants &amp; Eateries near Mumbai at Justdial</title>
+  <link rel="icon" href="./favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
-       font-family: "Poppins", sans-serif;
+      font-family: "Poppins", sans-serif;
+      background-color: #f0f2f5; /* Grey sides like the image */
+      padding-top: 10px;
+    }
+
+    header{
+      background-color: white;
+      height:82px;
+    }
+
+    .main-wrapper {
+      background-color: white;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding-bottom: 40px;
     }
     .search-bar-container {
       padding: 18px 0;
@@ -106,7 +123,7 @@
         border-radius:0 8px 8px 0;
         writing-mode:vertical-rl;
         text-orientation: mixed;
-        padding: 4px 6px;
+        padding: 4px 4px;
         border-color: transparent;
         font-weight: 600;
         font-size: 14px;
@@ -150,12 +167,21 @@
       flex-direction: column;
       justify-content: space-between;
     }
+
+    .n_imgbanner{
+        height: 30px;
+    }
+
+    p{
+      font-size: 12px;
+    }
+
+
   </style>
 </head>
 <body>
-
   <!-- Header -->
-  <header id="header" class="d-flex align-items-center px-3 py-2 border-bottom">
+  <header id="header" class="d-flex align-items-center px-3 n_tbdr fixed-top bg-white py-2 border-bottom container-fluid">
     <img src="./img/WhatsApp Image 2025-07-05 at 1.10.16 PM.jpeg" alt="Logo" height="40">
 
     <!-- 📍 Select Location Input -->
@@ -208,40 +234,73 @@
   </div>
   </header>
 
-  <!-- Hero Banner -->
-  <div class="container-fluid p-0">
-    <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/resfilter_banner_image.png?w=3840&q=75" class="w-100" style="max-height: 300px; object-fit: cover;" />
+  <div class="main-wrapper container-fluid">
+
+    <!-- Hero Banner -->
+    <div class="container-fluid p-0">
+      <div class="position-relative">
+        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/resfilter_banner_image.png?w=3840&q=75" class="w-100" style="max-height: 300px; object-fit: cover;" />
+          <!-- Text Overlay -->
+          <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
+            <h1 class="fw-bold text-uppercase" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.5); letter-spacing: 2px;">
+              IT'S ALL ABOUT FOOD
+            </h1>
+          </div>
+     
+
+    <!-- Action Buttons Section -->
+    <div class="position-absolute bottom-0 start-50 translate-middle-x w-100">
+      <div class="container">
+        <div class="row g-3 justify-content-center mb-3 n_imgbanner">
+
+            <!-- Book A Table -->
+            <div class="col-md-3 col-sm-6">
+              <div class="p-3 border rounded shadow-sm bg-white h-100">
+                <h6 class="fw-bold mb-1">
+                  <i class="fa-solid fa-handshake-angle me-2 text-warning"></i>
+                  Book A Table
+                </h6>
+                <small class="text-muted">Make Reservation > </small>
+              </div>
+            </div>
+
+            <!-- What’s Trending -->
+            <div class="col-md-3 col-sm-6">
+              <div class="p-3 border rounded shadow-sm bg-white h-100">
+                <h6 class="fw-bold mb-1">
+                  <i class="fa-solid fa-utensils me-2 text-danger"></i>
+                  What’s Trending?
+                </h6>
+                <small class="text-muted">Try it Yourself ></small>
+              </div>
+            </div>
+
+            <!-- Order Food -->
+            <div class="col-md-3 col-sm-6">
+              <div class="p-3 border rounded shadow-sm bg-white h-100">
+                <h6 class="fw-bold mb-1">
+                  <i class="fa-solid fa-bowl-rice me-2 text-success"></i>
+                  Order Food
+                </h6>
+                <small class="text-muted">5830 Restaurants ></small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+  </div>
   </div>
 
-  <!-- Action Buttons -->
-  <div class="container my-3 text-center">
-    <div class="row g-3 justify-content-center">
-      <div class="col-md-3">
-        <div class="p-3 border rounded shadow-sm">
-          <h6><i class="fa-solid fa-handshake-angle me-2"></i>Book A Table</h6>
-          <small>Make Reservation</small>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="p-3 border rounded shadow-sm">
-          <h6><i class="fa-solid fa-utensils me-2"></i>What’s Trending?</h6>
-          <small>Try it Yourself</small>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="p-3 border rounded shadow-sm">
-          <h6><i class="fa-solid fa-bowl-rice me-2"></i>Order Food</h6>
-          <small>5830 Restaurants</small>
-        </div>
-      </div>
-    </div>
-  </div>
+  <br>
+  <br>
 
    <!-- Category Cards -->
   <div class="container my-4">
     <div class="row g-4">
       <div class="col-md-2">
         <div class="card card-category equal-height w-100">
+          <a href="./bussinessDetailPage.html">
           <img src="https://akam.cdn.jdmagicbox.com/images/icons/website/i_indianflavours.jpg?w=640&q=75" alt="Indian Flavours">
           <div class="card-body">
             <h6 class="fw-bold">Indian Flavours</h6>
@@ -253,6 +312,7 @@
               <li><a href="#">More</a></li>
             </ul>
           </div>
+          </a>
         </div>
       </div>
       <div class="col-md-2">
@@ -335,6 +395,9 @@
         </div>
     </div>
 
+    <br>
+    <br>
+
     <div class="vertical-buttons" aria-label="Side vertical action buttons">
         <button class="side-button advertise" type="button" aria-label="Advertise">Advertise</button>
         <button class="side-button free-listing" type="button" aria-label="Free Listing">Free Listing</button>
@@ -343,40 +406,256 @@
 
   <!-- Footer Text -->
   <div class="container mb-5">
-    <h5 class="fw-bold">Unveiling the Culinary Treasures: Exploring Local Restaurants & Eateries near Mumbai</h5>
+    <h6 class="fw-bold">Unveiling the Culinary Treasures: Exploring Local Restaurants & Eateries near Mumbai</h6>
     <p class="text-muted">
       Welcome to the vibrant world of local restaurants, where every dish tells a story and every bite is an adventure! In this article, we will take a delightful journey through the bustling streets and cozy corners of your neighborhood to discover the hidden gems known as eateries, food places, and top-rated restaurants. From savory sensations to sweet delights, there's something for every palate in these food spots that define the essence of culinary excellence.
     </p>
-    <h5 class="fw-bold">Exploring the Local Scene</h5>
+    <h6 class="fw-bold">Exploring the Local Scene</h6>
     <p class="text-muted">
      When it comes to experiencing the true essence of a city or town, few things rival the joy of indulging in its local cuisine. Local restaurants offer a glimpse into the heart and soul of a community, serving up not just food but also a sense of belonging and tradition. Whether you're craving comfort food or eager to explore exotic flavors, these culinary havens have something to satisfy every craving.
     </p>
-    <h5 class="fw-bold">Restaurant Menu: A Feast for the Senses</h5>
+    <h6 class="fw-bold">Restaurant Menu: A Feast for the Senses</h6>
     <p class="text-muted">
       Step inside any local restaurant, and you'll be greeted by a symphony of aromas, colors, and flavors that titillate the senses. From sizzling steaks to aromatic curries, the restaurant menu is a treasure trove of culinary delights waiting to be explored. Each dish is carefully crafted to tantalize the taste buds and leave a lasting impression, ensuring that every meal is a memorable experience.
     </p>
-    <h5 class="fw-bold">Global Cuisines: A World of Flavors at Your Doorstep </h5>
+    <h6 class="fw-bold">Global Cuisines: A World of Flavors at Your Doorstep </h6>
     <p class="text-muted">
       One of the greatest joys of dining at local restaurants is the opportunity to embark on a culinary journey around the world without ever leaving your neighborhood. From Italian trattorias to Thai street food stalls, these establishments offer a diverse array of global cuisines that reflect the rich tapestry of cultures that call your city home. Whether you're in the mood for a taste of India or craving the bold flavors of Mexico, you'll find it all right here in your own backyard.
     </p>
-    <h5 class="fw-bold">Nightlife: Where Food Meets Entertainment </h5>
+    <h6 class="fw-bold">Nightlife: Where Food Meets Entertainment </h6>
     <p class="text-muted">
       Local restaurants aren't just about great food; they're also hubs of social activity and nightlife. As the sun sets and the city comes alive, these eateries transform into vibrant gathering spots where friends come together to eat, drink, and make memories. Whether you're looking for a cozy corner to enjoy a romantic dinner or a lively atmosphere to dance the night away, the local restaurant scene has something for everyone.
     </p>
-    <h5 class="fw-bold">Quick Bites: On-the-Go Gastronomy </h5>
+    <h6 class="fw-bold">Quick Bites: On-the-Go Gastronomy </h6>
     <p class="text-muted">
      In today's fast-paced world, convenience is key, and local restaurants are here to deliver. Whether you're rushing to catch a train or grabbing a quick bite between meetings, these food spots offer a delicious solution to your hunger pangs. From gourmet sandwiches to freshly baked pastries, you'll find an array of quick bites that are as satisfying as they are convenient.
-    </p><h5 class="fw-bold">Sweet Tooth: Indulge Your Dessert Desires </h5>
+    </p><h6 class="fw-bold">Sweet Tooth: Indulge Your Dessert Desires </h6>
     <p class="text-muted">
       No meal is complete without something sweet to satisfy your sweet tooth, and local restaurants have you covered. From decadent cakes to artisanal chocolates, these establishments offer a tempting array of desserts that are sure to delight your taste buds. Whether you're celebrating a special occasion or simply treating yourself to a little indulgence, there's no shortage of sweet treats to choose from.
-    </p><h5 class="fw-bold">Foodie's Paradise: A Haven for Culinary Enthusiasts </h5>
+    </p><h6 class="fw-bold">Foodie's Paradise: A Haven for Culinary Enthusiasts </h6>
     <p class="text-muted">
       For the true food lover, local restaurants are nothing short of paradise. With their commitment to quality, creativity, and innovation, these establishments cater to the discerning palate of the modern foodie. Whether you're seeking out the latest food trends or searching for a hidden gem off the beaten path, the local restaurant scene offers endless opportunities for culinary exploration and discovery.
         <br>
       In conclusion, local restaurants are more than just places to eat; they're vibrant hubs of culture, community, and creativity. From the tantalizing aromas of the kitchen to the convivial atmosphere of the dining room, every aspect of the dining experience is designed to delight and inspire. So the next time you're craving a culinary adventure, why not step off the beaten path and discover the culinary treasures waiting to be found in your own neighborhood? Your taste buds will thank you!
     </p>
 
-  </div>
+    <br>
+    <br>
+
+    <h5 class="fw-bold mb-4">Frequently Asked Questions</h5>
+
+    <div class="mb-4">
+      <p class="fw-semibold mb-1">1. What are the key factors to consider when choosing a restaurant in Mumbai?</p>
+      <p class="text-muted mb-0">You should consider the type of cuisine you're in the mood for, the restaurant's location, its hygiene standards, ambiance, price range, customer reviews, and any special requirements like vegetarian options, parking, or Wi-Fi.</p>
+    </div>
+
+    <div class="mb-4">
+      <p class="fw-semibold mb-1">2. How can I find the best local restaurants in Mumbai?</p>
+      <p class="text-muted mb-0">You can use online platforms such as Justdial, Zomato, Swiggy or Google Maps. Asking locals or friends for recommendations, checking social media pages and food blogs, and looking for popular food festivals or food trails can also help.</p>
+    </div>
+
+    <div class="mb-4">
+      <p class="fw-semibold mb-1">3. What should I look for in online reviews of Indian restaurants?</p>
+      <p class="text-muted mb-0">Look for consistency in positive feedback regarding food quality and taste, comments on cleanliness and hygiene, feedback on service and staff behavior, information on portion sizes and value for money, and any recurring negative comments or issues mentioned by multiple reviewers.</p>
+    </div>
+
+    <div class="mb-4">
+      <p class="fw-semibold mb-1">4. Are there any safety tips to keep in mind when dining out in India?</p>
+      <p class="text-muted mb-0">Opt for bottled water to avoid waterborne diseases. Check the hygiene rating of the restaurant. Prefer busy and well-reviewed places, as high turnover often indicates freshness. Be cautious of street food; ensure it's cooked fresh and served hot. Verify the authenticity of ingredients, especially in international cuisine restaurants.</p>
+    </div>
+
+    <div class="mb-4">
+      <p class="fw-semibold mb-1">5. What are some famous regional cuisines to try in different parts of India?</p>
+      <p class="text-muted mb-0">In North India, you can try Punjabi, Kashmiri, and Mughlai cuisines. In South India, popular options include Andhra, Tamil, Kerala, Karnataka, Goan, and Chettinad cuisines. In West India, you can explore Gujarati, Maharashtrian, and Goan cuisines. East India offers Bengali, Assamese, and Oriya cuisines.</p>
+    </div>
+
+    <div class="mb-4">
+      <p class="fw-semibold mb-1">6. How can I find restaurants offering authentic Indian street food in a hygienic environment?</p>
+      <p class="text-muted mb-0">Look for restaurants or eateries that specialize in street food but operate in a clean, indoor setting. Search for food courts in shopping malls which often have stalls offering popular street food in a more controlled environment.</p>
+    </div>
+
+     <div class="mb-4">
+      <p class="fw-semibold mb-1">7. What payment methods are commonly accepted at restaurants in Mumbai?</p>
+      <p class="text-muted mb-0">Cash is widely accepted everywhere. Credit and debit cards (Visa, MasterCard) are accepted at most urban restaurants. Digital wallets like Paytm, Google Pay, and PhonePe are becoming increasingly popular. Some high-end restaurants may also accept international credit cards.</p>
+    </div>
+
+    <div class="mb-4">
+      <p class="fw-semibold mb-1">8. What are some unique dining experiences I can try in India?</p>
+      <p class="text-muted mb-0">You can try themed restaurants with specific ambiance, floating restaurants on boats or houseboats, restaurants that offer live cultural performances or traditional music, rooftop restaurants with scenic views, and traditional Indian dining experiences like a thali meal served on a banana leaf or in an authentic setting.</p>
+    </div>
+
+    </div>
+
+    <!-- Additional FAQs -->
+    <div class="container mb-5">
+      <div class="mb-4">
+        <p class="fw-semibold mb-1">7. What payment methods are commonly accepted at restaurants in Mumbai?</p>
+        <p class="text-muted mb-0">Cash is widely accepted everywhere. Credit and debit cards (Visa, MasterCard) are accepted at most urban restaurants. Digital wallets like Paytm, Google Pay, and PhonePe are becoming increasingly popular. Some high-end restaurants may also accept international credit cards.</p>
+      </div>
+
+      <div class="mb-4">
+        <p class="fw-semibold mb-1">8. What are some unique dining experiences I can try in India?</p>
+        <p class="text-muted mb-0">You can try themed restaurants with specific ambiance, floating restaurants on boats or houseboats, restaurants that offer live cultural performances or traditional music, rooftop restaurants with scenic views, and traditional Indian dining experiences like a thali meal served on a banana leaf or in an authentic setting.</p>
+      </div>
+    </div>
+
+    <!-- Social Media + App Download -->
+    <div class="container mb-5">
+      <div class="d-flex justify-content-between align-items-center flex-wrap border-top pt-4 pb-3">
+        <div class="mb-2">
+          <span class="fw-semibold me-3">Follow us on</span>
+          <i class="fab fa-facebook text-primary fs-5 me-2"></i>
+          <i class="fab fa-youtube text-danger fs-5 me-2"></i>
+          <i class="fab fa-instagram text-danger fs-5 me-2"></i>
+          <i class="fab fa-linkedin text-primary fs-5 me-2"></i>
+          <i class="fab fa-x-twitter text-dark fs-5"></i>
+        </div>
+
+        <div class="d-flex gap-2">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" height="40" />
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" height="40" />
+        </div>
+      </div>
+    </div>
+
+        <!-- Footer Category Links -->
+        <div class="container pb-5">
+          <h7 class="fw-semibold mb-2">Popular Categories</h7>
+          <p class="text-muted small" style="line-height: 1.6;">
+            Body Massage Centers | Cinema Halls | Schools | Beauty Spas | Dermatologists | Hospitals | Malls | Gyms | Beauty Parlours | Estate Agents | Banquet Halls | ENT Doctors | Book Shops | Bike On Rent | Sexologist Doctors | Neurologists | Gynaecologist & Obstetrician Doctors | Train Ticket Booking Agents | Travel Agents | Paying Guest Accommodations | General Physician Doctors | Dentists | Orthopaedic Doctors | Chemists | Motor Training Schools | Gastroenterologists | Car Rental | Salons | Courier Services | Dance Classes | Pathology Labs | Taxi Services | Cake Shops | AC Repair & Services | Mobile Phone Dealers | Pet Shops | Dmart | Packers And Movers | Psychiatrists | Dharamshalas | Urologist Doctors | Bakeries | Bicycle Dealers | Coffee Shops | Paediatricians | Sonography Centres | Yoga Classes | Hostels | Cardiologists | Electrical Shops | Skin Care Clinics | Diagnostic Centres | Homeopathic Doctors | Physiotherapists | Photo Studios | Plumbers | Music Classes | Electricians | Sports Goods Dealers | Shoe Dealers | Hair Stylists | Gift Shops | Ophthalmologists | Car Repair & Services | Ayurvedic Doctors | Eye Clinics | Restaurants | Carpenters | Jewellery Showrooms | Cooks On Hire | Stationery Shops | Nephrologists | Caterers | Interior Designers | Rehabilitation Center | Grocery Stores | Banks | ATM | 5 Star Hotels | Hotels | Resorts | Plastic Surgeons | Smart Watch Dealers | Drug De Addiction Centres | Chinese Restaurants
+          </p>
+
+          <h7 class="fw-semibold mt-4 mb-2">Trending Searches</h7>
+          <p class="text-muted small" style="line-height: 1.6;">
+            Real Estate Agents | Book Shops | Aadhaar Card Agents | Yoga Classes | Estate Agents For Land | Prmjay Scheme Hospitals | Tutorials For IIT JEE | Mobile Phone Repair & Services-MI | Wrist Watch Dealers
+          </p>
+
+          <h7 class="fw-semibold">Trending Searches</h7>
+          <p class="text-muted small">
+            Real Estate Agents | Book Shops | Aadhaar Card Agents | Yoga Classes | Estate Agents For Land | Pmjay Scheme Hospitals | Tutorials For IIT JEE | Mobile Phone Repair & Services-MI | Wrist Watch Dealers |
+            Education Consultants | Battery Operated Scooter Dealers–OLA | Entertainment Centres | DTH TV Providers–Sun Direct | AC Repair & Services–Blue Star | Simcard Dealers–Jio | MPSC Tutorials |
+            Shoe Dealers–Nike | Tirupati Ticketing Services | Bitcoin Services | Lawyers For District Court | Ayushman Bharat Yojana | Lawyers For Supreme Court | Taxi Services For Inter City | BPSC Tutorials |
+            Courier Services For Canada | BEST Enquiry | Courier Services For Dubai | Demat Account Services | Automobile Part Dealers | Mutual Fund Agents | Courier Services For Surat |
+            Tutorials For MHT CET
+          </p>
+
+          <!-- Deals and Offers -->
+          <h7 class="fw-semibold mt-4">Deals and Offers</h7>
+          <p class="text-muted small">
+            Kotak Mahindra Banks | INOX Cinemas | Canara Banks | Ratnakar Banks | PVR Cinemas | ICICI Banks | HDFC Banks | AU Small Finance Bank | Axis Banks | IDFC First Banks |
+            Sony | Yes Banks | Crama | Dell Stores | Beverly Hills Polo Club | Jayalukkas Jewellery | Flying Machine | Anytime Fitness | Toni&Guy Salons | Barbeque Nation |
+            McDonalds | Sweet Truth Cakes | ALDO Stores | Helios | Max Stores | Wrangler | Levi’s | Apple Store | Oppo Exclusive Showroom | Federal Banks | DBS Banks
+          </p>
+
+          <!-- Explore JD Collections -->
+          <h7 class="fw-semibold mt-4">Explore JD Collections</h7>
+          <p class="text-muted small">
+            Travel & Tourism | Beauty & Fashion | Health & Fitness | Food & Beverage | Finance | On Demand Services | Home & Living | Education & Career | Recreation | JD Business Guide
+          </p>
+
+          <!-- Popular Cities -->
+          <h7 class="fw-semibold mt-4">Popular Cities</h7>
+          <p class="text-muted small">
+            Bangalore | Mumbai | Chennai | Delhi | Hyderabad | Pune | Ahmedabad | Lucknow | Patna | Jaipur | Indore | Kochi | Kolkata | Coimbatore | Nagpur | Ludhiana | Agra |
+            Bhubaneshwar | Bhopal | Guwahati | Surat | Madurai | Visakhapatnam | Sonepat | Vadodara | Meerut | Varanasi | Noida | Chandigarh | Vijayawada | Durgapur | Srinagar |
+            Nashik | Panipat | Jammu | Jodhpur | Udaipur | Thane | Amritsar | Jabalpur
+          </p>
+        </div>
+
+        <!-- Footer Main Grid -->
+    <div class="container py-5 border-top">
+        <div class="row">
+
+          <!-- Quick Links -->
+          <div class="col-12 col-md-3 mb-4">
+            <h7 class="fw-semibold n_about">Quick Links</h7>
+            <ul class="list-unstyled small text-muted n_about2">
+              <li><a href="#" class="text-decoration-none text-muted">About us</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">Investor Relations</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">We're hiring</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">Customer Care</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">Free Listing</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">What's New</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">Report a Bug</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">B2B Sitemap</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">Sitemap</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">Advertise</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">Media</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">Testimonials</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">Feedback</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">Business Badge</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">JD Collection</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">Client Success Videos</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">B2B India Sitemap</a></li>
+              <li><a href="#" class="text-decoration-none text-muted">Return & Exchange Policy</a></li>
+            </ul>
+          </div>
+
+          <!-- JD Verticals -->
+          <div class="col-12 col-md-9">
+            <h7 class="fw-semibold n_about">JD Verticals</h7>
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-2 small text-muted n_about2">
+              <div class="col">B2B</div>
+              <div class="col">Advertising & PR</div>
+              <div class="col">All India</div>
+              <div class="col">Doctors</div>
+              <div class="col">Bills & Recharge</div>
+              <div class="col">Accommodation</div>
+              <div class="col">Beauty & Personal Care</div>
+              <div class="col">Agriculture</div>
+              <div class="col">Apparel</div>
+              <div class="col">Astrology</div>
+              <div class="col">Chemicals</div>
+              <div class="col">Construction & Real Estate</div>
+              <div class="col">Education</div>
+              <div class="col">Electronics</div>
+              <div class="col">Engineering</div>
+              <div class="col">Entertainment</div>
+              <div class="col">Events & Wedding</div>
+              <div class="col">Furniture</div>
+              <div class="col">Jewellery</div>
+              <div class="col">Home & Garden</div>
+              <div class="col">Housekeeping</div>
+              <div class="col">Industrial Plants</div>
+              <div class="col">IT Components</div>
+              <div class="col">Food & Beverage</div>
+              <div class="col">Health & Medical</div>
+              <div class="col">Luggage & Bags</div>
+              <div class="col">Office Supplies</div>
+              <div class="col">Packaging & Printing</div>
+              <div class="col">Pet & Pet Supplies</div>
+              <div class="col">Placements</div>
+              <div class="col">Lights & Lighting</div>
+              <div class="col">Restaurant</div>
+              <div class="col">Rubber & Plastics</div>
+              <div class="col">Security & Protection</div>
+              <div class="col">Textile & Leather</div>
+              <div class="col">Transportation</div>
+              <div class="col">Travel</div>
+              <div class="col">Watches & Eyewear</div>
+              <div class="col">Toys & Games</div>
+              <div class="col">Sports & Entertainment</div>
+              <div class="col">Public</div>
+              <div class="col">Cricket</div>
+              <div class="col">Automobiles</div>
+              <div class="col">Electronic Component</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Copyright -->
+    <div class="container border-top text-muted small text-center py-3">
+      Copyrights 2008-25. All Rights Reserved. <a href="#" class="text-decoration-none text-muted">Privacy</a> |
+      <a href="#" class="text-decoration-none text-muted">Terms</a> |
+      <a href="#" class="text-decoration-none text-muted">Infringement</a>
+    </div>
+
+
+
+</div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
