@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Discover Local Restaurants &amp; Eateries near Mumbai at Justdial</title>
+  <title>Book Hotel Dev Residency in Neemuch Ho,Neemuch - Best Hotels near me in Neemuch - Justdial</title>
   <link rel="icon" href="./favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -12,6 +12,17 @@
         font-family: "Poppins", sans-serif;
         background-color: #f0f2f5; /* Grey sides like the image */
         padding-top: 10px;
+    }
+    .rating-stars i {
+        font-size: 20px;
+        color: yellow;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .rating-stars i:hover,
+    .rating-stars i:hover ~ i {
+        color:rgb(239, 243, 13);
     }
 
     header{
@@ -234,6 +245,183 @@
             height: 1px;
         }
 
+        .main-image-wrapper {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap; /* force one horizontal row */
+        }
+
+        /* Main large image on the left */
+        .main-image-wrapper .main-img {
+            width: 400px;
+            height: 200px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Thumbnails - display inline */
+        .thumbnail-grid {
+            display: flex;
+        }
+
+        .thumbnail-grid img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Action buttons stacked vertically */
+        .image-action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .image-action-buttons .btn {
+            width: 100px;
+            height:30px;
+            font-size: 14px;
+        }
+
+        .btn-image-bg {
+            width: 120px;
+            height: 200px;
+            border: none;
+            background-image: url('https://images.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-jplumcpurg.jpg');
+            background-size:cover;
+            background-position: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            transition: 0.3s;
+        }
+
+        .btn-image-bg2 {
+            width: 120px;
+            height: 200px;
+            border: none;
+            background-image: url('https://images.jdmagicbox.com/v2/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-fdaj5v9cgl.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            transition: 0.3s;
+        }
+
+        .btn-image-bg:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .breadcrumb-item a{
+            color:grey;
+        }
+
+        .breadcrumb-item{
+            text-decoration: underline;
+            font-size: 12px;
+            padding-top: 20px;
+        }
+
+
+
+    .contact-card {
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 320px;
+        margin: 30px auto;
+        }
+
+        .contact-card a {
+        color: #0d6efd; /* Bootstrap primary blue */
+        text-decoration: none;
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 500;
+        }
+
+        .contact-card a:hover {
+        text-decoration: underline;
+        }
+
+        .contact-card i {
+        margin-right: 8px;
+        }
+
+        .contact-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        }
+
+        .contact-address {
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 15px;
+        }
+
+    .menu-section {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        }
+
+        .menu-section h5,
+        .info-section h5 {
+        font-weight: 600;
+        margin-bottom: 16px;
+        }
+
+        .menu-cards {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        }
+
+        .menu-cards img {
+        border-radius: 10px;
+        height: 153px;
+        width: 200px;
+        object-fit: cover;
+        border: 1px solid #ccc;
+        }
+
+        .info-section {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        }
+
+        .info-section .info-label {
+        font-weight: 500;
+        color: #666;
+        font-size: 14px;
+        }
+
+        .info-section .info-value {
+        font-weight: 500;
+        color: #000;
+        font-size: 12px;
+        }
+
+        .info-row {
+        margin-bottom: 16px;
+        }
+
+
+
+
+</style>
+
+
         
   </style>
 </head>
@@ -252,13 +440,13 @@
                 <!-- Location -->
                 <div class="input-group location-box flex-fill">
                 <span class="input-group-text"><i class="fas fa-map-marker-alt text-primary"></i></span>
-                <input type="text" class="form-control" placeholder="Select Location">
+                <input type="text" class="form-control" placeholder="Neemuch">
                 </div>
 
                 <!-- Search -->
                 <div class="input-group search-box flex-fill">
                 <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-primary"></i></span>
-                <input type="text" id="searchInput" class="form-control border-start-0" placeholder="Search for Packers and Movers">
+                <input type="text" id="searchInput" class="form-control border-start-0" placeholder="Hotel Dev Residency Opposite Mahindra Showroom Neemuch Ho">
                 </div>
             </div>
 
@@ -300,139 +488,171 @@
     <br>
     <br>
     <div class="main-wrapper container-fluid">
-        <div class="container-fluid m-0 p-0">
-             <img src="https://images.jdmagicbox.com/mumbai/u9/022pxx22.xx22.140804130028.j6u9/cbnr/c3dca75c766994214eaed793c7844371.jpg" class="n_banner" alt="Afzal's Mao Restaurant">
+    <div class="container my-4">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb text-black">
+            <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="./Hotellisting.html">Hotels in neemuch</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dev Residency</li>
+            </ol>
+        </nav>
+
+        <!-- Image and Title Section -->
+        <div class="main-image-wrapper mb-4">
+        <!-- Main Image -->
+        <img src="https://content.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-hotels-vgiwymdr30.jpg?w=2048&q=75" class="main-img h-29" alt="Main image">
+
+        <!-- Right Column Thumbnails + Buttons -->
+        <div class="thumbnail-column">
+            <div class="thumbnail-grid">
+            <img src="https://content.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-5s60ff7mb3.jpg?w=2048&q=75" alt="thumb1">
+            <img src="https://content.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-f5wzqatukx.jpg?w=2048&q=75" alt="thumb2">
+            <img src="https://images.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-746kfq2s7j.jpg" alt="thumb3">
+             <button class="btn btn-outline-secondary btn-image-bg">+25 More</button>
+            <button class="btn btn-outline-primary btn-image-bg2">
+                <i class="fa-solid fa-image"></i>
+                Add More</button>
+
         </div>
-        <br>
-        <h2>Best Biryani Restaurants in Mumbai - Order Food Online</h2>
-        <!-- Filter Section -->
-            <div class="container-fluid bg-light py-2">
-        <div class="d-flex overflow-auto px-2" style="gap: 10px; white-space: nowrap;">
-            
-            <!-- Sort By -->
-            <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle btn-sm" data-bs-toggle="dropdown">Sort by</button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Relevance</a></li>
-                <li><a class="dropdown-item" href="#">Rating</a></li>
-                <li><a class="dropdown-item" href="#">Newest</a></li>
-            </ul>
-            </div>
-
-            <!-- Price -->
-            <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle btn-sm" data-bs-toggle="dropdown">Price</button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Under ₹300</a></li>
-                <li><a class="dropdown-item" href="#">₹300 - ₹600</a></li>
-                <li><a class="dropdown-item" href="#">Above ₹600</a></li>
-            </ul>
-            </div>
-
-            <!-- Biryani -->
-            <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle btn-sm" data-bs-toggle="dropdown">
-                Biryani
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Chicken Biryani</a></li>
-                <li><a class="dropdown-item" href="#">Veg Biryani</a></li>
-                <li><a class="dropdown-item" href="#">Mutton Biryani</a></li>
-            </ul>
-            </div>
-
-            <!-- Static Filter Buttons -->
-            <div class="dropdown"> <button class="btn btn-secondary btn-sm">Book a Table</button></div>
-            <div class="dropdown"> <button class="btn btn-secondary btn-sm">Online Ordering</button></div>
-            <div class="dropdown"> <button class="btn btn-secondary btn-sm">Open Now</button></div>
-            <div class="dropdown"><button class="btn btn-secondary btn-sm">Trending</button></div>
-            <div class="dropdown"><button class="btn btn-secondary btn-sm">Top Rated</button></div>
+        </div>
+        </div>
 
 
-            <button class="btn btn-secondary dropdown-toggle btn-sm" data-bs-toggle="dropdown">
-                Top Rated
-            </button>
+        <!-- Restaurant Info -->
+        <h3>Hotel Dev Residency</h3>
+        <div class="d-flex align-items-center mb-2">
+            <span class="badge bg-success me-2">4.0 ★</span>
+            <span>502 Ratings</span>
+            <span class="badge bg-secondary ms-3">Verified</span>
+        </div>
 
-             <button class="btn btn-secondary dropdown-toggle btn-sm" data-bs-toggle="dropdown">
-                Rank
-            </button>
+        <div class="text-end">
+                <span class="me-2">Click to Rate</span>
+                <span class="rating-stars">
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                </span>
+        </div>
 
-            <!-- All Filters Trigger -->
-            <button class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#filterDrawer" aria-controls="filterDrawer">
-            All Filters
-            <i class="fa-solid fa-sort"></i>
-            </button>
+        <!-- Address + Tags -->
+        <p class="mb-1">
+            <i class="bi bi-geo-alt"></i> Neemuch Ho, Neemuch
+            • <span class="text-success">Opens 24 hrs</span>
+            • 1 Star Hotel
+        </p>
+        <p class="mb-2">
+            <i class="bi bi-currency-rupee"></i> <i class="fa-solid fa-utensils"></i> Restaurant 
+            • <i class="fa-solid fa-square-parking"></i> Parking Available 
+            • <i class="fa-solid fa-person-swimming"></i> Swimming Pool
+        </p>
 
-            <!-- Offcanvas Sidebar (Place OUTSIDE the scroll container) -->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="filterDrawer">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title">More Filters</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    <div class="offcanvas-body">
-                <!-- Quick Filters -->
-                        <h6>Quick Filters</h6>
-                        <div class="mb-3">
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Book a Table</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Online Ordering</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Open Now</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Trending</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Top Rated</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Quick Response</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Jd Verified</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Deals</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Jd Trust</button>
-                        </div>
+        <!-- Action Buttons -->
+        <div class="d-flex gap-2 mb-3">
+            <a href="tel:08460234847" class="btn btn-success">📞 07423-234847</a>
+            <button class="btn btn-primary ">Get Deals</button>
+            <button class="btn btn-outline-success">WhatsApp</button>
+            <button class="btn btn-light text-secondary"><i class="fa-regular fa-share-from-square"></i></button>
+            <button class="btn btn-light text-secondary"><i class="fa-regular fa-pen-to-square"></i></button>
+        </div>
 
-                        <!-- Sort By -->
-                        <h6>Sort by</h6>
-                        <div class="mb-3">
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Relevance</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Rating</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Popular</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Distance</button>
-                        </div>
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs mt-4" id="restaurantTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#overview">Overview</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#menu">Menu</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#quickinfo">Quick Info</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#services">Services</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#photos">Photos</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews">Reviews</button>
+            </li>
+        </ul>
+        </div>
 
-                        <!-- Price -->
-                        <h6>Price</h6>
-                        <div class="mb-4">
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">0–500</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">500–1000</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">1000–2000</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">2000+</button>
-                        </div>
-                        
-                        <h6>Cuisines</h6>
-                        <div class="mb-3">
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Biryani</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">North Indian</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Pure Veg</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Chinese</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">South Indian</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Andhra</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Arabic</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Bengali</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Continental</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Goan</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Gujarati</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Irani</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Italian</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Jain</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Japanese</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Kathiywadi</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Kerela</button>
-                            <button class="btn btn-outline-secondary btn-sm filter-tag">Kolhapuri</button>
-                        </div>
-                        <br>
-                        <!-- Action Buttons -->
-                        <div class="d-flex justify-content-between mt-4">
-                            <button class="btn btn-outline-danger w-50 me-2">Reset Filters</button>
-                            <button class="btn btn-primary w-50">Apply Filters</button>
-                        </div>
+        <div class="container">
+            <div class="row p-0 mt-0">
+            <!-- LEFT SIDE: Menu + Quick Info -->
+            <!-- MENU SECTION -->
+            <div class="col-md-9">
+                <div class="menu-section shadow-sm">
+                <h5>Photos </h5>
+                    <div class="menu-cards">
+                        <img src="https://images.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-746kfq2s7j.jpg" alt="Menu 1">
+                        <img src="http://images.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-62jkpcpqme.jpg" alt="Menu 2">
+                        <img src="https://content.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-hotels-vgiwymdr30.jpg?imwidth=128" alt="Menu 3">
+                        <img src="https://images.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-qmg41nffuw.jpg" alt="Menu 4">
+                        <img src="https://images.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-2tma3b3ocx.jpg" alt="Menu5">                  
                     </div>
+                    <br>
+                    <button class="btn btn-primary"> <i class="fa-solid fa-cloud-arrow-up"></i> Upload Photos</button>
             </div>
+            
+            <!-- QUICK INFORMATION SECTION -->
+            <div class="info-section shadow-sm">
+            <h5>Quick Information</h5>
+                <div class="row info-row">
+                    <div class="col-md-3">
+                        <div class="info-label"><i class="fa-solid fa-check"></i> Facilities</div>
+                        <div class="info-value">
+                            No Smoking Zone, Swimming Pool, Photocopier, Travel Assistance, Full Power Backup, Kitchen</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info-label"><i class="fa-solid fa-check"></i> For Kids</div>
+                        <div class="info-value">Kids Meal</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info-label"><i class="fa-solid fa-check"></i> Pets Essentials</div>
+                        <div class="info-value">Pets Allowed</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info-label"><i class="fa-solid fa-check"></i> Timing</div>
+                        <div class="info-value">Check In-12:00 PM, Check Out-11:00 AM </div>
+                    </div>
+                </div>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-3">
+            <div class="contact-card shadow-sm">
+                    <div class="contact-title">Contact</div>
+
+                    <a href="tel:08460234847"><i class="bi bi-telephone-fill"></i> 📞 07423-234847</a>
+                    <br>
+
+                    <div class="contact-address">
+                    <h6><strong> Address :</strong></h6>
+                    Opposite Mahindra Showroom, Mahu Neemuch Road, Neemuch HO-458441
+                    </div>
+
+                    <a href="#"><i class="fa-solid fa-diamond-turn-right"></i>Get Directions</a>
+                    <a href="#"><i class="fa-solid fa-copy"></i>Copy</a>
+                    <a href="#"><i class="fa-regular fa-clock"></i>Open</a>
+                    <a href="#"><i class="fa-solid fa-pen"></i>Suggest New Timings</a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></i>Send Enquiry by Email</a>
+                    <a href="#"><i class="fa-solid fa-message"></i>Get info via SMS/Email</a>
+                    <a href="#"><i class="fa-solid fa-share"></i>Share</a>
+                    <a href="#"><i class="fa-regular fa-star"></i>Tap to rate</a>
+                </div>
             </div>
         </div>
+
         </div>
+        </div>
+
 
         <div class="vertical-buttons" aria-label="Side vertical action buttons">
             <button class="side-button advertise" type="button" aria-label="Advertise">Advertise</button>
@@ -440,111 +660,6 @@
         </div>
 
 
-
-
-        <div class="container py-4">
-            <!-- Restaurant 1 -->
-            <div class="restaurant d-flex mb-4 p-3 border rounded bg-white">
-                <img src="https://content.jdmagicbox.com/comp/def_content_category/chinese-restaurants/chinese-7--chinese-restaurants-1-p4idy-250.jpg?w=640&q=75" 
-                    class="n_img me-3" 
-                    alt="Afzal's Mao Restaurant" 
-                    style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px;">
-                <div class="flex-grow-1">
-                    <h4>Afzal's Mao Restaurant</h4>
-                    <div class="d-flex justify-content-between align-items-start">
-                        <div class="info">
-                        <span class="badge bg-success text-white me-2">4.0 ★</span> (234 Ratings) - Responsive<br>
-                        <i class="fa-solid fa-location-dot"></i> Cbd Belapur Sector 15, Navi Mumbai<br>
-                        Opens at 11:00 AM tomorrow • ₹250 Price for two • Parking Available
-                        </div>
-                        <div class="actions">
-                        <a href="tel:07041408330" class="btn btn-success btn-sm me-2">Call</a>
-                        <a href="#" class="btn btn-primary btn-sm me-2">Order Online</a>
-                        <a href="#" class="btn btn-dark btn-sm">Menu</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-
-            <!-- Restaurant 2 -->
-            <div class="restaurant d-flex mb-4 p-3 border rounded bg-white">
-                <img src="https://content.jdmagicbox.com/v2/comp/mumbai/96/022papp20090214irop6519396/catalogue/bollywood-stars-madh-island-mumbai-north-indian-restaurants-y7fskptxr7-250.jpg?w=640&q=75" 
-                    class="n_img me-3" 
-                    alt="Bollywood Stars" 
-                    style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px;">
-                    <div class="flex-grow-1">
-                    <h4>Bollywood Stars</h4>
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div class="info">
-                            <span class="badge bg-warning text-dark me-2">4.3 ★</span> (816 Ratings) - Trending<br>
-                            <i class="fa-solid fa-location-dot"></i> Bhaskar Bhopi Road Malad West, Mumbai<br>
-                            Opens at 07:00 PM tomorrow • ₹550 Price for two
-                            </div>
-                            <div class="actions">
-                            <a href="tel:07041408330" class="btn btn-success btn-sm me-2">Call</a>
-                            <a href="#" class="btn btn-primary btn-sm me-2">Order Online</a>
-                            <a href="#" class="btn btn-dark btn-sm">Menu</a>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-
-             <!-- Restaurant 3 -->
-            <div class="restaurant d-flex mb-4 p-3 border rounded bg-white">
-                <img src="https://content.jdmagicbox.com/v2/comp/thane/b2/022pxx22.xx22.190814031104.s9b2/catalogue/sairaj-tandoor-corner-kalwa-thane-thane-tandoor-dealers-ap1dq6jsfr-250.jpg?w=640&q=75" 
-                    class="n_img me-3" 
-                    alt=">Sairaj Tandoor and Chinese Corner" 
-                    style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px;">
-                    <div class="flex-grow-1">
-                    <h4>Sairaj Tandoor and Chinese Corner</h4>
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div class="info">
-                            <span class="badge bg-warning text-dark me-2">4.4 ★</span> (20 Ratings) - Responsive<br>
-                            <i class="fa-solid fa-location-dot"></i> Old Mumbai Pune Road Kalwa Thane, Thane<br>
-                            Opens at 07:00 PM Everyday • ₹200 Price for two
-                            </div>
-                            <div class="actions">
-                            <a href="tel:08511995254" class="btn btn-success btn-sm me-2">Call</a>
-                            <a href="#" class="btn btn-primary btn-sm me-2">Order Online</a>
-                            <a href="#" class="btn btn-dark btn-sm">Menu</a>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-
-
-             <!-- Restaurant 4 -->
-            <div class="restaurant d-flex mb-4 p-3 border rounded bg-white">
-                <img src="https://content.jdmagicbox.com/v2/comp/mumbai/k1/022pxx22.xx22.250523201742.c4k1/catalogue/sizzling-wok-by-jk-biryani-dn-nagar-andheri-west-mumbai-restaurants-dk6v8ou537-250.jpg?w=640&q=75" 
-                    class="n_img me-3" 
-                    alt="Sizzling Wok By J K Biryani" 
-                    style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px;">
-                    <div class="flex-grow-1">
-                    <h4>Sizzling Wok By J K Biryani</h4>
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div class="info">
-                            <span class="badge bg-warning text-dark me-2">5.0 ★</span> (15 Ratings) - Trending<br>
-                            <i class="fa-solid fa-location-dot"></i> Bhaskar Bhopi Road Malad West, Mumbai<br>
-                            Open until 12:00 AM • ₹400 Price for two
-                            </div>
-                            <div class="actions">
-                            <a href="tel: 09035049317" class="btn btn-success btn-sm me-2">Call</a>
-                            <a href="#" class="btn btn-primary btn-sm me-2">Order Online</a>
-                            <a href="#" class="btn btn-dark btn-sm">Menu</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <!-- Load More Button -->
-            <div class="text-center mt-4">
-                <button class="btn btn-outline-primary">Load More</button>
-            </div>
-    </div>
-</div>
-
-  
 
     <div class="container mb-5">
         <div class="d-flex justify-content-between align-items-center flex-wrap border-top pt-4 pb-3">
