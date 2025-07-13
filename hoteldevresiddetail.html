@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Hotel Dev Residency in Neemuch Ho,Neemuch - Best Hotels near me in Neemuch - Justdial</title>
+  <link rel="icon" href="./favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f0f2f5; /* Grey sides like the image */
+        padding-top: 10px;
+    }
+    .rating-stars i {
+        font-size: 20px;
+        color: yellow;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .rating-stars i:hover,
+    .rating-stars i:hover ~ i {
+        color:rgb(239, 243, 13);
+    }
+
+    header{
+        background-color: white;
+        height:82px;
+    }
+
+    .main-wrapper {
+        background-color: white;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        padding-bottom: 40px;
+    }
+    .search-bar-container {
+        padding: 18px 0;
+    }
+    .card-category img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 12px 12px 0 0;
+    }
+    .card-category {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+     .card-category img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 12px 12px 0 0;
+    }
+    .custom-header-links .btn {
+        margin-right: 6px; /* or 4px for even tighter */
+        padding: 4px 8px;  /* smaller padding makes them tighter */
+        font-size: 15px;
+    }
+    
+    .custom-header-links .btn:last-child {
+        margin-right: 0;
+    }
+
+    .location-wrapper {
+        display: inline-block; /* So it doesn't take full width */
+    }
+
+    .location-box {
+        width: 223px;; /* Box size */
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .location-box .form-control {
+        border: none;
+        box-shadow: none;
+    }
+
+    .location-box .input-group-text {
+        background-color: white;
+        border: none;
+    }
+
+    .location-box,.search-box {
+        width: 230px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background-color: white;
+    }
+
+    .location-box .form-control,.search-box .form-control {
+        border: none;
+        box-shadow: none;
+    }
+        
+    .search-box {
+        width: 290px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        background-color: white;      
+    }
+    
+    .search-box .form-control {
+        border: none;
+        box-shadow: none;
+    }
+
+     /* Container for vertical buttons */
+    .vertical-buttons {
+        position: fixed; transform: rotate(180deg);
+        color: white;
+        border-radius:8px 0 0 8px;
+        top: 40%;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 1000;
+        user-select: none;
+    }
+
+    /* Each button style */
+    .side-button {
+        border-radius:0 8px 8px 0;
+        writing-mode:vertical-rl;
+        text-orientation: mixed;
+        padding: 4px 4px;
+        border-color: transparent;
+        font-weight: 600;
+        font-size: 14px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        white-space: nowrap;
+        letter-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        user-select: none;
+    }
+
+        /* Advertise button (red) */
+    .advertise {
+            background: linear-gradient(135deg, red,red);
+    }
+    .advertise:hover {
+            background: linear-gradient(135deg, red, red);
+    }
+
+    /* Free Listing button (blue) */
+    .free-listing {
+            background: linear-gradient(135deg, #007bff, #007bff);
+    }
+
+    .free-listing:hover {
+            background: linear-gradient(135deg, #007bff, #007bff);
+    }
+
+    .equal-height {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+    }
+    .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+    }
+
+    p{
+            font-size: 12px;
+    }
+
+    .n_options{
+            height: 365px;
+    }
+    
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .restaurant {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+         .n_banner {
+            width: 100%;
+            height:130px;
+        }
+
+        .n_img{
+            width: 150px;
+        }
+
+        .restaurant h3 {
+            margin: 0;
+        }
+
+        .info {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .actions {
+            margin-top: 10px;
+        }
+
+        .button {
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .whatsapp {
+            background: #25D366;
+        }
+
+        
+        .overflow-auto::-webkit-scrollbar {
+            height: 1px;
+        }
+
+        .main-image-wrapper {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap; /* force one horizontal row */
+        }
+
+        /* Main large image on the left */
+        .main-image-wrapper .main-img {
+            width: 400px;
+            height: 200px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Thumbnails - display inline */
+        .thumbnail-grid {
+            display: flex;
+        }
+
+        .thumbnail-grid img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Action buttons stacked vertically */
+        .image-action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .image-action-buttons .btn {
+            width: 100px;
+            height:30px;
+            font-size: 14px;
+        }
+
+        .btn-image-bg {
+            width: 120px;
+            height: 200px;
+            border: none;
+            background-image: url('https://images.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-jplumcpurg.jpg');
+            background-size:cover;
+            background-position: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            transition: 0.3s;
+        }
+
+        .btn-image-bg2 {
+            width: 120px;
+            height: 200px;
+            border: none;
+            background-image: url('https://images.jdmagicbox.com/v2/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-fdaj5v9cgl.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            transition: 0.3s;
+        }
+
+        .btn-image-bg:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .breadcrumb-item a{
+            color:grey;
+        }
+
+        .breadcrumb-item{
+            text-decoration: underline;
+            font-size: 12px;
+            padding-top: 20px;
+        }
+
+
+
+    .contact-card {
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 320px;
+        margin: 30px auto;
+        }
+
+        .contact-card a {
+        color: #0d6efd; /* Bootstrap primary blue */
+        text-decoration: none;
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 500;
+        }
+
+        .contact-card a:hover {
+        text-decoration: underline;
+        }
+
+        .contact-card i {
+        margin-right: 8px;
+        }
+
+        .contact-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        }
+
+        .contact-address {
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 15px;
+        }
+
+    .menu-section {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        }
+
+        .menu-section h5,
+        .info-section h5 {
+        font-weight: 600;
+        margin-bottom: 16px;
+        }
+
+        .menu-cards {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        }
+
+        .menu-cards img {
+        border-radius: 10px;
+        height: 153px;
+        width: 200px;
+        object-fit: cover;
+        border: 1px solid #ccc;
+        }
+
+        .info-section {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        }
+
+        .info-section .info-label {
+        font-weight: 500;
+        color: #666;
+        font-size: 14px;
+        }
+
+        .info-section .info-value {
+        font-weight: 500;
+        color: #000;
+        font-size: 12px;
+        }
+
+        .info-row {
+        margin-bottom: 16px;
+        }
+
+
+
+
+</style>
+
+
+        
+  </style>
+</head>
+<body>
+    <header id="header" class="fixed-top bg-white border-bottom py-2">
+        <div class="container-fluid mt-3">
+            <div class="row align-items-center">
+
+            <!-- Logo -->
+            <div class="col-auto">
+                <img src="./img/WhatsApp Image 2025-07-05 at 1.10.16 PM.jpeg" alt="Logo" height="40">
+            </div>
+
+            <!-- Location and Search Inputs -->
+            <div class="col-6 d-flex gap-2">
+                <!-- Location -->
+                <div class="input-group location-box flex-fill">
+                <span class="input-group-text"><i class="fas fa-map-marker-alt text-primary"></i></span>
+                <input type="text" class="form-control" placeholder="Neemuch">
+                </div>
+
+                <!-- Search -->
+                <div class="input-group search-box flex-fill">
+                <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-primary"></i></span>
+                <input type="text" id="searchInput" class="form-control border-start-0" placeholder="Hotel Dev Residency Opposite Mahindra Showroom Neemuch Ho">
+                </div>
+            </div>
+
+            <!-- Language Dropdown -->
+            <div class="col-auto">
+                <div class="dropdown">
+                <button class="btn dropdown-toggle text-primary btn-sm" type="button" data-bs-toggle="dropdown">
+                    <i class="fa-solid fa-language text-primary"></i> En
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">English-EN</a></li>
+                    <li><a class="dropdown-item" href="#">हिंदी - HI</a></li>
+                    <li><a class="dropdown-item" href="#">मराठी - MR</a></li>
+                    <li><a class="dropdown-item" href="#">বেঙ্গলি - BN</a></li>
+                    <li><a class="dropdown-item" href="#">ગુજરાતી - GU</a></li>
+                    <li><a class="dropdown-item" href="#">ಕನ್ನಡ - KN</a></li>
+                    <li><a class="dropdown-item" href="#">தமிழ் - TA</a></li>
+                </ul>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="col-auto d-flex align-items-center gap-2">
+                <button type="button" class="btn  btn-sm">
+                <i class="fa-solid fa-volume-high"></i> Advertise
+                </button>
+                <button type="button" class="btn  btn-sm">
+                <i class="fa-solid fa-chart-line"></i> Free Listing
+                </button>
+                <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">
+                Log-In / Sign-Up
+                </button>
+            </div>
+            </div>
+        </div>
+        </header>
+    </div>
+    </div>
+    <br>
+    <br>
+    <div class="main-wrapper container-fluid">
+    <div class="container my-4">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb text-black">
+            <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="./Hotellisting.html">Hotels in neemuch</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dev Residency</li>
+            </ol>
+        </nav>
+
+        <!-- Image and Title Section -->
+        <div class="main-image-wrapper mb-4">
+        <!-- Main Image -->
+        <img src="https://content.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-hotels-vgiwymdr30.jpg?w=2048&q=75" class="main-img h-29" alt="Main image">
+
+        <!-- Right Column Thumbnails + Buttons -->
+        <div class="thumbnail-column">
+            <div class="thumbnail-grid">
+            <img src="https://content.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-5s60ff7mb3.jpg?w=2048&q=75" alt="thumb1">
+            <img src="https://content.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-f5wzqatukx.jpg?w=2048&q=75" alt="thumb2">
+            <img src="https://images.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-746kfq2s7j.jpg" alt="thumb3">
+             <button class="btn btn-outline-secondary btn-image-bg">+25 More</button>
+            <button class="btn btn-outline-primary btn-image-bg2">
+                <i class="fa-solid fa-image"></i>
+                Add More</button>
+
+        </div>
+        </div>
+        </div>
+
+
+        <!-- Restaurant Info -->
+        <h3>Hotel Dev Residency</h3>
+        <div class="d-flex align-items-center mb-2">
+            <span class="badge bg-success me-2">4.0 ★</span>
+            <span>502 Ratings</span>
+            <span class="badge bg-secondary ms-3">Verified</span>
+        </div>
+
+        <div class="text-end">
+                <span class="me-2">Click to Rate</span>
+                <span class="rating-stars">
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                </span>
+        </div>
+
+        <!-- Address + Tags -->
+        <p class="mb-1">
+            <i class="bi bi-geo-alt"></i> Neemuch Ho, Neemuch
+            • <span class="text-success">Opens 24 hrs</span>
+            • 1 Star Hotel
+        </p>
+        <p class="mb-2">
+            <i class="bi bi-currency-rupee"></i> <i class="fa-solid fa-utensils"></i> Restaurant 
+            • <i class="fa-solid fa-square-parking"></i> Parking Available 
+            • <i class="fa-solid fa-person-swimming"></i> Swimming Pool
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="d-flex gap-2 mb-3">
+            <a href="tel:08460234847" class="btn btn-success">📞 07423-234847</a>
+            <button class="btn btn-primary ">Get Deals</button>
+            <button class="btn btn-outline-success">WhatsApp</button>
+            <button class="btn btn-light text-secondary"><i class="fa-regular fa-share-from-square"></i></button>
+            <button class="btn btn-light text-secondary"><i class="fa-regular fa-pen-to-square"></i></button>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs mt-4" id="restaurantTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#overview">Overview</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#menu">Menu</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#quickinfo">Quick Info</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#services">Services</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#photos">Photos</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews">Reviews</button>
+            </li>
+        </ul>
+        </div>
+
+        <div class="container">
+            <div class="row p-0 mt-0">
+            <!-- LEFT SIDE: Menu + Quick Info -->
+            <!-- MENU SECTION -->
+            <div class="col-md-9">
+                <div class="menu-section shadow-sm">
+                <h5>Photos </h5>
+                    <div class="menu-cards">
+                        <img src="https://images.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-746kfq2s7j.jpg" alt="Menu 1">
+                        <img src="http://images.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-62jkpcpqme.jpg" alt="Menu 2">
+                        <img src="https://content.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-hotels-vgiwymdr30.jpg?imwidth=128" alt="Menu 3">
+                        <img src="https://images.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-qmg41nffuw.jpg" alt="Menu 4">
+                        <img src="https://images.jdmagicbox.com/comp/neemuch/h2/9999p7423.7423.190503145551.s7h2/catalogue/hotel-dev-residency-neemuch-ho-neemuch-hotels-2tma3b3ocx.jpg" alt="Menu5">                  
+                    </div>
+                    <br>
+                    <button class="btn btn-primary"> <i class="fa-solid fa-cloud-arrow-up"></i> Upload Photos</button>
+            </div>
+            
+            <!-- QUICK INFORMATION SECTION -->
+            <div class="info-section shadow-sm">
+            <h5>Quick Information</h5>
+                <div class="row info-row">
+                    <div class="col-md-3">
+                        <div class="info-label"><i class="fa-solid fa-check"></i> Facilities</div>
+                        <div class="info-value">
+                            No Smoking Zone, Swimming Pool, Photocopier, Travel Assistance, Full Power Backup, Kitchen</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info-label"><i class="fa-solid fa-check"></i> For Kids</div>
+                        <div class="info-value">Kids Meal</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info-label"><i class="fa-solid fa-check"></i> Pets Essentials</div>
+                        <div class="info-value">Pets Allowed</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info-label"><i class="fa-solid fa-check"></i> Timing</div>
+                        <div class="info-value">Check In-12:00 PM, Check Out-11:00 AM </div>
+                    </div>
+                </div>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-3">
+            <div class="contact-card shadow-sm">
+                    <div class="contact-title">Contact</div>
+
+                    <a href="tel:08460234847"><i class="bi bi-telephone-fill"></i> 📞 07423-234847</a>
+                    <br>
+
+                    <div class="contact-address">
+                    <h6><strong> Address :</strong></h6>
+                    Opposite Mahindra Showroom, Mahu Neemuch Road, Neemuch HO-458441
+                    </div>
+
+                    <a href="#"><i class="fa-solid fa-diamond-turn-right"></i>Get Directions</a>
+                    <a href="#"><i class="fa-solid fa-copy"></i>Copy</a>
+                    <a href="#"><i class="fa-regular fa-clock"></i>Open</a>
+                    <a href="#"><i class="fa-solid fa-pen"></i>Suggest New Timings</a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></i>Send Enquiry by Email</a>
+                    <a href="#"><i class="fa-solid fa-message"></i>Get info via SMS/Email</a>
+                    <a href="#"><i class="fa-solid fa-share"></i>Share</a>
+                    <a href="#"><i class="fa-regular fa-star"></i>Tap to rate</a>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+
+        <div class="vertical-buttons" aria-label="Side vertical action buttons">
+            <button class="side-button advertise" type="button" aria-label="Advertise">Advertise</button>
+            <button class="side-button free-listing" type="button" aria-label="Free Listing">Free Listing</button>
+        </div>
+
+
+
+    <div class="container mb-5">
+        <div class="d-flex justify-content-between align-items-center flex-wrap border-top pt-4 pb-3">
+            <div class="mb-2">
+            <span class="fw-semibold me-3">Follow us on</span>
+            <i class="fab fa-facebook text-primary fs-5 me-2"></i>
+            <i class="fab fa-youtube text-danger fs-5 me-2"></i>
+            <i class="fab fa-instagram text-danger fs-5 me-2"></i>
+            <i class="fab fa-linkedin text-primary fs-5 me-2"></i>
+            <i class="fab fa-x-twitter text-dark fs-5"></i>
+            </div>
+
+            <div class="d-flex gap-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" height="40" />
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" height="40" />
+            </div>
+        </div>
+        </div>
+
+        <!-- Footer Category Links -->
+        <div class="container pb-5">
+          <h7 class="fw-semibold mb-2">Popular Categories</h7>
+          <p class="text-muted small" style="line-height: 1.6;">
+            Body Massage Centers | Cinema Halls | Schools | Beauty Spas | Dermatologists | Hospitals | Malls | Gyms | Beauty Parlours | Estate Agents | Banquet Halls | ENT Doctors | Book Shops | Bike On Rent | Sexologist Doctors | Neurologists | Gynaecologist & Obstetrician Doctors | Train Ticket Booking Agents | Travel Agents | Paying Guest Accommodations | General Physician Doctors | Dentists | Orthopaedic Doctors | Chemists | Motor Training Schools | Gastroenterologists | Car Rental | Salons | Courier Services | Dance Classes | Pathology Labs | Taxi Services | Cake Shops | AC Repair & Services | Mobile Phone Dealers | Pet Shops | Dmart | Packers And Movers | Psychiatrists | Dharamshalas | Urologist Doctors | Bakeries | Bicycle Dealers | Coffee Shops | Paediatricians | Sonography Centres | Yoga Classes | Hostels | Cardiologists | Electrical Shops | Skin Care Clinics | Diagnostic Centres | Homeopathic Doctors | Physiotherapists | Photo Studios | Plumbers | Music Classes | Electricians | Sports Goods Dealers | Shoe Dealers | Hair Stylists | Gift Shops | Ophthalmologists | Car Repair & Services | Ayurvedic Doctors | Eye Clinics | Restaurants | Carpenters | Jewellery Showrooms | Cooks On Hire | Stationery Shops | Nephrologists | Caterers | Interior Designers | Rehabilitation Center | Grocery Stores | Banks | ATM | 5 Star Hotels | Hotels | Resorts | Plastic Surgeons | Smart Watch Dealers | Drug De Addiction Centres | Chinese Restaurants
+          </p>
+
+          <h7 class="fw-semibold mt-4 mb-2">Trending Searches</h7>
+          <p class="text-muted small" style="line-height: 1.6;">
+            Real Estate Agents | Book Shops | Aadhaar Card Agents | Yoga Classes | Estate Agents For Land | Prmjay Scheme Hospitals | Tutorials For IIT JEE | Mobile Phone Repair & Services-MI | Wrist Watch Dealers
+          </p>
+
+          <h7 class="fw-semibold">Trending Searches</h7>
+          <p class="text-muted small">
+            Real Estate Agents | Book Shops | Aadhaar Card Agents | Yoga Classes | Estate Agents For Land | Pmjay Scheme Hospitals | Tutorials For IIT JEE | Mobile Phone Repair & Services-MI | Wrist Watch Dealers |
+            Education Consultants | Battery Operated Scooter Dealers–OLA | Entertainment Centres | DTH TV Providers–Sun Direct | AC Repair & Services–Blue Star | Simcard Dealers–Jio | MPSC Tutorials |
+            Shoe Dealers–Nike | Tirupati Ticketing Services | Bitcoin Services | Lawyers For District Court | Ayushman Bharat Yojana | Lawyers For Supreme Court | Taxi Services For Inter City | BPSC Tutorials |
+            Courier Services For Canada | BEST Enquiry | Courier Services For Dubai | Demat Account Services | Automobile Part Dealers | Mutual Fund Agents | Courier Services For Surat |
+            Tutorials For MHT CET
+          </p>
+
+          <!-- Deals and Offers -->
+          <h7 class="fw-semibold mt-4">Deals and Offers</h7>
+          <p class="text-muted small">
+            Kotak Mahindra Banks | INOX Cinemas | Canara Banks | Ratnakar Banks | PVR Cinemas | ICICI Banks | HDFC Banks | AU Small Finance Bank | Axis Banks | IDFC First Banks |
+            Sony | Yes Banks | Crama | Dell Stores | Beverly Hills Polo Club | Jayalukkas Jewellery | Flying Machine | Anytime Fitness | Toni&Guy Salons | Barbeque Nation |
+            McDonalds | Sweet Truth Cakes | ALDO Stores | Helios | Max Stores | Wrangler | Levi’s | Apple Store | Oppo Exclusive Showroom | Federal Banks | DBS Banks
+          </p>
+
+          <!-- Explore JD Collections -->
+          <h7 class="fw-semibold mt-4">Explore JD Collections</h7>
+          <p class="text-muted small">
+            Travel & Tourism | Beauty & Fashion | Health & Fitness | Food & Beverage | Finance | On Demand Services | Home & Living | Education & Career | Recreation | JD Business Guide
+          </p>
+
+          <!-- Popular Cities -->
+          <h7 class="fw-semibold mt-4">Popular Cities</h7>
+          <p class="text-muted small">
+            Bangalore | Mumbai | Chennai | Delhi | Hyderabad | Pune | Ahmedabad | Lucknow | Patna | Jaipur | Indore | Kochi | Kolkata | Coimbatore | Nagpur | Ludhiana | Agra |
+            Bhubaneshwar | Bhopal | Guwahati | Surat | Madurai | Visakhapatnam | Sonepat | Vadodara | Meerut | Varanasi | Noida | Chandigarh | Vijayawada | Durgapur | Srinagar |
+            Nashik | Panipat | Jammu | Jodhpur | Udaipur | Thane | Amritsar | Jabalpur
+          </p>
+        </div>
+
+        <!-- Footer Main Grid -->
+            <div class="container py-5 border-top">
+                <div class="row">
+
+                <!-- Quick Links -->
+                <div class="col-12 col-md-3 mb-4">
+                    <h7 class="fw-semibold n_about">Quick Links</h7>
+                    <ul class="list-unstyled small text-muted n_about2">
+                    <li><a href="#" class="text-decoration-none text-muted">About us</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Investor Relations</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">We're hiring</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Customer Care</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Free Listing</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">What's New</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Report a Bug</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">B2B Sitemap</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Sitemap</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Advertise</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Media</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Testimonials</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Feedback</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Business Badge</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">JD Collection</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Client Success Videos</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">B2B India Sitemap</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Return & Exchange Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- JD Verticals -->
+                <div class="col-12 col-md-9">
+                    <h7 class="fw-semibold n_about">JD Verticals</h7>
+                    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-2 small text-muted n_about2">
+                    <div class="col">B2B</div>
+                    <div class="col">Advertising & PR</div>
+                    <div class="col">All India</div>
+                    <div class="col">Doctors</div>
+                    <div class="col">Bills & Recharge</div>
+                    <div class="col">Accommodation</div>
+                    <div class="col">Beauty & Personal Care</div>
+                    <div class="col">Agriculture</div>
+                    <div class="col">Apparel</div>
+                    <div class="col">Astrology</div>
+                    <div class="col">Chemicals</div>
+                    <div class="col">Construction & Real Estate</div>
+                    <div class="col">Education</div>
+                    <div class="col">Electronics</div>
+                    <div class="col">Engineering</div>
+                    <div class="col">Entertainment</div>
+                    <div class="col">Events & Wedding</div>
+                    <div class="col">Furniture</div>
+                    <div class="col">Jewellery</div>
+                    <div class="col">Home & Garden</div>
+                    <div class="col">Housekeeping</div>
+                    <div class="col">Industrial Plants</div>
+                    <div class="col">IT Components</div>
+                    <div class="col">Food & Beverage</div>
+                    <div class="col">Health & Medical</div>
+                    <div class="col">Luggage & Bags</div>
+                    <div class="col">Office Supplies</div>
+                    <div class="col">Packaging & Printing</div>
+                    <div class="col">Pet & Pet Supplies</div>
+                    <div class="col">Placements</div>
+                    <div class="col">Lights & Lighting</div>
+                    <div class="col">Restaurant</div>
+                    <div class="col">Rubber & Plastics</div>
+                    <div class="col">Security & Protection</div>
+                    <div class="col">Textile & Leather</div>
+                    <div class="col">Transportation</div>
+                    <div class="col">Travel</div>
+                    <div class="col">Watches & Eyewear</div>
+                    <div class="col">Toys & Games</div>
+                    <div class="col">Sports & Entertainment</div>
+                    <div class="col">Public</div>
+                    <div class="col">Cricket</div>
+                    <div class="col">Automobiles</div>
+                    <div class="col">Electronic Component</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+                <!-- Copyright -->
+                <div class="container border-top text-muted small text-center py-3">
+                Copyrights 2008-25. All Rights Reserved. <a href="#" class="text-decoration-none text-muted">Privacy</a> |
+                <a href="#" class="text-decoration-none text-muted">Terms</a> |
+                <a href="#" class="text-decoration-none text-muted">Infringement</a>
+                </div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
+
+
+           
