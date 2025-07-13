@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Businesses Near You on Local Search Engine - Justdial</title>
+    <link rel="icon" href="./favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        /* Added styles to replace <br> tags */
+        .header-spacing {
+            margin-top: 20px;
+        }
+        .section-spacing {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .small-spacing {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .medium-spacing {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .large-spacing {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        .extra-large-spacing {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .header-spacing { 
+            margin-top: 20px; 
+        }
+        .section-spacing {
+             margin-top: 30px; margin-bottom: 30px;
+             }
+        .small-spacing { 
+            margin-top: 10px; margin-bottom: 10px; 
+        }
+        .medium-spacing { 
+            margin-top: 15px; margin-bottom: 15px;
+         }
+        .large-spacing { 
+            margin-top: 25px; margin-bottom: 25px; 
+        }
+        .extra-large-spacing { 
+            margin-top: 40px; margin-bottom: 40px;
+        }
+        /* Styling for 3D and dynamic effects */
+        .n_icons .btn {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            border-radius: 12px;
+            width:75px;
+            height: 75px;
+            padding: 10px;
+            display: block;
+        }
+
+        .n_icons .btn:hover {
+            transform: scale(1.05) translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            background-color: #f8f9fa;
+        }
+
+        .n_icons .btn img {
+            max-width: 35px;
+            margin-bottom: 8px;
+            transition: transform 0.2s;
+        }
+
+        .n_icons .btn:hover img {
+            transform: scale(1.1);
+        }
+
+        .n_icons .col {
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .n_icons a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .main-wrapper {
+            background-color: white;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            padding-bottom: 40px;
+        }
+
+        /* Container for vertical buttons */
+        .vertical-buttons {
+            position: fixed; 
+            transform: rotate(180deg);
+            color: white;
+            border-radius:8px 0 0 8px;
+            top: 40%;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+            user-select: none;
+        }
+
+        /* Each button style */
+        .side-button {
+            border-radius:0 8px 8px 0;
+            writing-mode:vertical-rl;
+            text-orientation: mixed;
+            padding: 4px 4px;
+            border-color: transparent;
+            font-weight: 600;
+            font-size: 14px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            white-space: nowrap;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            user-select: none;
+        }
+
+        /* Advertise button (red) */
+        .advertise {
+            background: linear-gradient(135deg, red,red);
+        }
+        .advertise:hover {
+            background: linear-gradient(135deg, red, red);
+        }
+
+        /* Free Listing button (blue) */
+        .free-listing {
+            background: linear-gradient(135deg, #007bff, #007bff);
+        }
+
+        .free-listing:hover {
+            background: linear-gradient(135deg, #007bff, #007bff);
+        }
+
+        .location-wrapper {
+            display: inline-block; /* So it doesn't take full width */
+        }
+
+        .location-box {
+            width: 223px;; /* Box size */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .location-box .form-control {
+            border: none;
+            box-shadow: none;
+        }
+
+        .location-box .input-group-text {
+            background-color: white;
+            border: none;
+        }
+
+        .location-box,.search-box {
+            width: 230px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .location-box .form-control,.search-box .form-control {
+            border: none;
+            box-shadow: none;
+        }
+         
+        .search-box {
+            width: 290px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            background-color: white;      
+        }
+        
+        .search-box .form-control {
+            border: none;
+            box-shadow: none;
+        }
+
+        .n_foot{
+            font-size: 2px;
+        }
+        .n_tbdr{
+            border:1px dashed white;
+        }
+        .btn-drop{
+            background-color: #E8E8E8;
+        }
+        body{
+            background-color: #E8E8E8;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+        }
+        header{
+            height:80px;
+        }
+        .header img{
+            height:2px;
+        }
+        main{
+            min-height: 2500px;
+        }
+        footer{
+            height: 537px;
+        }
+        .n_dropdown{
+            margin-top: 10px;
+        }
+       
+        .n_bell{
+            margin-bottom: 0px ;
+        }
+        .highlight-blue {
+            color: #007bff; /* Bootstrap primary blue */
+        }
+        .n_dropdown2{
+            color: #007bff;
+        }
+        .n_slidear{
+            width:100%;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .category-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .category-title {
+            font-weight: 600;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .category-item {
+            text-align: center;
+        }
+        .category-item img {
+            border-radius: 8px;
+            width: 100%;
+            max-width: 120px;
+            height: 90px;
+            object-fit: cover;
+            margin-bottom: 8px;
+        }
+       
+        .category-item p {
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+        .category-item img {
+            border-radius: 12px;
+            width: 110px;
+            max-width: 160px;   /* Increased width */
+            height: 120px;       /* Increased height */
+            object-fit:cover;
+            margin-bottom: 8px;
+        }
+        .n_slide{
+            height:240px;
+        }
+        .service-box {
+            border: 1px solid #e6e5e5;
+            border-radius: 12px;
+            padding: 20px;
+            background-color: #eee9e9;
+            margin-bottom: 30px;
+        }
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background-color: #f8f9fa;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            margin-bottom: 8px;
+        }
+        .freelisting{
+            font-family: Poppins, sans-serif;
+            font-weight: 1px;
+            font-size: large;
+        }
+        .icon-box img {
+            width: 70px;
+            height: 70px;
+        }
+        .text-muted {
+            font-size: 14px;
+        }
+        .highlight-green {
+            color: green;
+            font-size: 13px;
+        }
+        .card {
+            text-align: center;
+        }
+        .card-img-top {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+         }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+        .social-icons a {
+            margin: 0 5px;
+            color: #333;
+            text-decoration: none;
+        }
+        p{
+            font-size: 12px;
+            color: gray;
+
+        }
+        .card-body p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .reviewer {
+            font-weight: bold;
+        }
+
+        .stars {
+            color: orange;
+            font-size: 14px;
+        }
+
+        .whatsapp {
+            float: right;
+        }
+        .category-card {
+            width: 150px;
+            min-height: 200px;
+            color: white;
+            border-radius: 12px;
+            padding: 15px;
+            font-weight: 500;
+        }
+        .n_cards{
+            height: 224px;
+            text-align: left;
+        }
+
+        .n_about{
+            font-size: 14px;
+        }
+
+        .n_about2{
+            font-size: 12px;
+        }
+
+       #searchInHeader .form-control {
+            max-width: 200px;
+        }
+        .webbanner img{
+            height: 32px;
+        }
+        
+        .custom-header-links .btn {
+            margin-right: 6px; /* or 4px for even tighter */
+            padding: 4px 8px;  /* smaller padding makes them tighter */
+            font-size: 15px;
+        }
+        .custom-header-links .btn:last-child {
+            margin-right: 0;
+        }
+
+
+        .row-cols-10 > * {
+            flex: 0 0 auto;
+            width: 10%;
+        }
+      
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 14%;
+            z-index: 1000;
+            margin-top: 12px;
+        }
+
+        .invisible-hide {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        /* Custom styles */
+        .container-custom {
+            background-color: #d1d1d1; /* light grey background */
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .content-area {
+            background-color: #ffffff; /* white background */
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+        }
+        .n_icons img {
+            height:55px;
+            width:55px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-4 pt-0 pb-0 n_tbdr">
+        <header id="header" class="n_tbdr fixed-top bg-white">
+            <div class="row m-0 h-100">
+                <div class="col-2 p-0 n_tbdr">
+                     <img src="./img/WhatsApp Image 2025-07-05 at 1.10.16 PM.jpeg" class="webbanner" alt="Website Banner" />
+                </div>
+               
+                <div class="col-10 p-0 n_tbdr d-flex align-items-center justify-content-end pe-3">
+                    <ul class="nav custom-header-links gap-0">
+                        <li class="nav-item">
+                            <div class="dropdown n_wearehiring n_dropdown d-flex">
+                                <button class="btn dropdown-toggle text-primary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-language text-primary"></i> En
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">English-EN</a></li>
+                                    <li><a class="dropdown-item" href="#">हिंदी - HI</a></li>
+                                    <li><a class="dropdown-item" href="#">मराठी - MR</a></li>
+                                    <li><a class="dropdown-item" href="#">বেঙ্গলি - BN</a></li>
+                                    <li><a class="dropdown-item" href="#">ગુજરાતી - GU</a></li>
+                                    <li><a class="dropdown-item" href="#">ಕನ್ನಡ - KN</a></li>
+                                    <li><a class="dropdown-item" href="#">தமிழ் - TA</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                         <li class="nav-item">
+                            <button type="button" class="btn"><a class="nav-link text-black n_wearehiring d-flex" href="#">We Are Hiring</a></button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn"><a class="nav-link text-black n_wearehiring d-flex" href="#">Investor Relations</a></button>
+                        </li>
+                         <li class="nav-item">
+                            <button type="button" class="btn advertise_class me-1"><a class="nav-link text-black" href="#">   Advertise
+                                <i class="fa-solid fa-volume-high"></i>
+                            </a></button>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="btn freelisting text-black nav-link mt-2">
+                                <i class="fa-solid fa-chart-line"></i> Free Listing
+                            </a>
+                            </li>
+                        <li class="nav-item">
+                            <a href="#" class="btn btn-lg text-black nav-link mt-2">
+                                <i class="fa-regular fa-bell"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn btn-primary btn-sm n_dropdown" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Log-In / Sign-Up
+                            </button>
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Nidhi Sharma
+                                        <i class="fa-regular fa-circle-user"></i></br>
+                                        Click to View Profile
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <button type="button" class="btn"><a>  
+                                        <i class="fa-solid fa-heart"></i>
+                                         Favourites
+                                    </a>
+                                    </button>
+                                
+                                    <button type="button" class="btn"><a> 
+                                        <i class="fa-solid fa-bookmark"></i>
+                                         Saved
+                                    </a>
+                                    </button>
+                                
+                                    <button type="button" class="btn"><a> 
+                                        <i class="fa-solid fa-user-pen"></i>
+                                         Edit Profile
+                                    </a>
+                                    </button>
+                                
+                                    <button type="button" class="btn"><a>  
+                                        <i class="fa-solid fa-wallet"></i>
+                                         My Transaction
+                                    </a>
+                                    </button>
+                                
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-language"></i> Language</button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">English-EN</a></li>
+                                            <li><a class="dropdown-item" href="#">हिंदी - HI</a></li>
+                                            <li><a class="dropdown-item" href="#">मराठी - MR</a></li>
+                                            <li><a class="dropdown-item" href="#">বেঙ্গলি - BN</a></li>
+                                            <li><a class="dropdown-item" href="#">ગુજરાતી - GU</a></li>
+                                            <li><a class="dropdown-item" href="#">ಕನ್ನಡ - KN</a></li>
+                                            <li><a class="dropdown-item" href="#">தமிழ் - TA</a></li>
+                                        </ul>
+                                    </div>
+                                
+                                    <button type="button" class="btn"><a>  
+                                        <i class="fa-solid fa-bell"></i>
+                                        Notifications
+                                    </a>
+                                    </button>
+                                
+                                    <button type="button" class="btn"><a>  
+                                        <i class="fa-solid fa-business-time"></i>
+                                        My Bussiness
+                                    </a>
+                                    </button>
+                             
+                                    <button type="button" class="btn"><a>
+                                        <i class="fa-solid fa-headset"></i>
+                                        Customer Service
+                                    </a>
+                                    </button>
+                            
+                                    <button type="button" class="btn large-spacing "><a>  
+                                        <i class="fa-solid fa-people-arrows"></i>
+                                        Investor Relations
+                                    </a>
+                                    </button>
+
+                                    <button type="button" class="btn large-spacing "><a>  
+                                        <i class="fa-solid fa-building-shield"></i>
+                                        Policy
+                                    </a>
+                                    </button>
+
+                                    <button type="button" class="btn"><a>  
+                                        <i class="fa-solid fa-comments"></i>
+                                        Feedback
+                                    </a>
+                                    </button>
+                               
+                                    <button type="button" class="btn"><a>  
+                                        <i class="fa-solid fa-handshake-angle"></i>
+                                        Help
+                                    </a>
+                                    </button>
+                              
+                                    <button type="button" class="btn"><a>  
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                        Log-Out
+                                    </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+  
+        <div class="main-wrapper container-fluid large-spacing ">
+            <main class="n_tbdr" id="mainContent">
+                <div class="container my-4">
+                    <h2>Search Across '5.9 Crore + 
+                        <span id="rotatingText" style="color: #0076D7;">Product & Services</span>
+                    </h2> 
+                    <div class="d-flex gap-3 align-items-center flex-wrap">
+                    </div>
+
+                    <!-- This wrapper will move on scroll -->
+                    <div id="searchLocationWrapper" class="container d-flex gap-2 align-items-center py-2 flex-wrap">
+                    
+                        <!-- 📍 Select Location Input -->
+                        <div class="input-group location-box">
+                            <span class="input-group-text">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Select Location">
+                        </div>
+
+                        <!-- 🔍 Search For Input with Icon -->
+                        <div class="input-group search-box">
+                            <span class="input-group-text bg-white border-end-0">
+                            <i class="fas fa-search text-primary"></i>
+                            </span>
+                            <input type="text" id="searchInput" class="form-control border-start-0" placeholder="Search for Packers and Movers">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container mt-3 n_slide">
+                    <div class="row overflow-hidden n_slide rounded-2 img-fluid">
+                        <div class="col-md-6 n_slide">
+                            <div id="carouselExampleAutoplaying" class="n_slidear slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_interiordesigners_2024.webp" class="d-block w-100 h-100 object-fit-cover" alt="img">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_hotels_2024.webp" class="d-block w-100 h-100 object-fit-cover" alt="img">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_cctv_2024.webp" class="d-block w-100 h-100 object-fit-cover" alt="img">
+                                    </div>
+                                    <div class="carousel-item active">
+                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_loans_2024.webp" class="d-block w-100 h-100 object-fit-cover" alt="img">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_webflight_2024.webp" class="d-block w-100 h-100 object-fit-cover" alt="img">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_packersmovers_2024.webp" class="d-block w-100 h-100 object-fit-cover" alt="img">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                    <span aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                    <span aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Category Cards -->
+                        <div class="col-md-6 n_slide">
+                            <div class="d-flex gap-3 mb-4 scroll-x">
+
+                                <!-- B2B -->
+                                <div class="category-card n_cards text-center position-relative overflow-hidden" style="background-image: url('https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/b2b_square_hotkey.webp?w=2048&q=75'); background-size: cover; background-position: right; background-color: #0076D7;">
+                                    <div class="position-absolute top-0 start-0 w-84 h-100" style="background-color: rgba(14, 119, 205, 0.6);"></div>
+                                    <div class="position-relative">
+                                        <h6>B2B</h6>
+                                        <small>Quick Quotes</small>
+                                    </div>
+                                </div>
+
+                                <!-- Repairs & Services -->
+                                <div class="category-card n_cards text-white text-center position-relative overflow-hidden" style="background-image: url('https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/repair_square_hotkey.webp?w=2048&q=75'); background-size: cover; background-position: right; background-color: #0056b3;">
+                                    <div class="position-absolute top-0 start-0 w-84 h-100" style="background-color:  rgba(14, 119, 205, 0.6);"></div>
+                                    <div class="position-relative">
+                                        <h6>REPAIRS & SERVICES</h6>
+                                        <small>Get Nearest Vendor</small>
+                                    </div>
+                                </div>
+
+                                <!-- Real Estate -->
+                                <div class="category-card n_cards text-white text-center position-relative overflow-hidden" style="background-image: url('https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/realestate_square_hotkey.webp?w=2048&q=75'); background-size: cover; background-position: right; background-color:purple;">
+                                    <div class="position-absolute top-0 start-0 w-84 h-100" style="background-color: rgba(14, 119, 205, 0.6);"></div>
+                                    <div class="position-relative">
+                                        <h6>REAL ESTATE</h6>
+                                        <small>Finest Agents</small>
+                                    </div>
+                                </div>
+
+                                <!-- Doctors -->
+                                <div class="category-card n_cards text-white text-center position-relative overflow-hidden" style="background-image: url('https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/doctor_square_hotkey.webp?w=2048&q=75'); background-size: cover; background-position: right; background-color: green;">
+                                    <div class="position-absolute top-0 start-0 w-84 h-100" style="background-color:  rgba(14, 119, 205, 0.6);"></div>
+                                    <div class="position-relative">
+                                        <h6>DOCTORS</h6>
+                                        <small>Book Now</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container text-center my-4 n_icons">
+                    <div class="row row-cols-10 btn-lg text-secondary">
+                        
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="./returantlisting.html" class="btn mb-3">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/restaurant-2022.svg?w=96&q=75" class="mb-4" alt="Hotel">
+                                </a>Restaurants
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="./Hotellisting.html" class="btn mb-3">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/hotel-2022.svg?w=96&q=75" class="mb-4" alt="Hotel">
+                                </a>Hotels
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/beauty.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Beauty Spa
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/homedecor.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Home Decor
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hotkey_wedding_icon.gif?w=96&q=75" alt="Flight">   
+                                </a>
+                            </div>
+                            <br>Wedding Planning
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/education.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Education
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/renthire.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Rent & Hire
+                        </div>
+
+                        <div class="col">                        
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/hospital_2023.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Hospitals
+                        </div>
+
+                        <div class="col">             
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/contractor-2022.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Contractors
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/pet_shops_2023.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Pet Shops
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/pg-hostels-rooms.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>PG & Hostels
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/estate-agent.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Estate Agent
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/eventorganizers.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Event Organizers
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/courier_2023.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Courier Services
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/newhotkey/loans.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Loans
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/driving_school_2023.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Driving Schools
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/gym_2023.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Gym
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/packers_movers_2023.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Packers & Movers
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/dentist_2023.svg?w=96&q=75" alt="Flight">
+                                </a>
+                            </div>
+                            <br>Dentists
+                        </div>
+
+                        <div class="col">
+                            <div class="icon-store">
+                                <a href="#" class="btn">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdvVWaxVpvriYI9pPTde3gTJ_SfJHQdWywU2naSdXYfh8dNOOp4Hb5-0NDCT0LSOFq_3E&usqp=CAU" alt="Flight">
+                                </a>
+                            </div>
+                           <br>Popular Categories
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="vertical-buttons" aria-label="Side vertical action buttons">
+                    <button class="side-button advertise" type="button" aria-label="Advertise">Advertise</button>
+                    <button class="side-button free-listing" type="button" aria-label="Free Listing">Free Listing</button>
+                </div>
+
+                <div class="container my-4">
+                    <div class="row overflow-hidden n_slide rounded-2 img-fluid">
+                        <div class="col-md-6">
+                            <!-- Wedding Requisites -->
+                            <div class="category-section">
+                                <div class="category-title">Wedding Requisites</div>
+                                <div class="row text-center justify-content-center">
+                                    <div class="col-6 col-md-3 category-item">
+                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banquethalls_rectangle_2024.webp?w=640&q=75" alt="Banquet Halls">
+                                        <p>Banquet Halls</p>
+                                    </div>
+                                    <div class="col-6 col-md-3 category-item">
+                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bridalrequisite_rectangle_2024.webp?w=640&q=75" alt="Bridal Requisite">
+                                        <p>Bridal Requisite</p>
+                                    </div>
+                                    <div class="col-6 col-md-3 category-item">
+                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/caterers_rectangle_2024.webp?w=640&q=75" alt="Caterers">
+                                        <p>Caterers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <!-- Beauty & Spa -->
+                            <div class="category-section">
+                                <div class="category-title">Beauty & Spa</div>
+                                <div class="row text-center justify-content-center">
+                                    <div class="col-6 col-md-3 category-item">
+                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/beautyparlours_rectangle_2024.webp?w=640&q=75" alt="Beauty Parlours">
+                                        <p>Beauty Parlours</p>
+                                    </div>
+                                    <div class="col-6 col-md-3 category-item">
+                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/spamassages_rectangle_2024.webp?w=640&q=75" alt="Spa & Massages">
+                                        <p>Spa & Massages</p>
+                                    </div>
+                                    <div class="col-6 col-md-3 category-item">
+                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/salons_rectangle_2024.webp?w=640&q=75" alt="Salons">
+                                        <p>Salons</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container my-4">
+                        <div class="row overflow-hidden n_slide rounded-2 img-fluid">
+                            <div class="col-md-6">
+                                <!-- Repairs & Services -->
+                                <div class="category-section">
+                                    <div class="category-title">Repairs & Services</div>
+                                    <div class="row text-center justify-content-center">
+                                        <div class="col-6 col-md-3 category-item">
+                                            <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_acrepair.png?w=640&q=75" alt="AC Service">
+                                            <p>AC Service</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 category-item">
+                                            <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/carservice_rectangle_2024.webp?w=640&q=75" alt="Car Service">
+                                            <p>Car Service</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 category-item">
+                                            <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bikeservice_rectangle_2024.webp?w=640&q=75" alt="Bike Service">
+                                            <p>Bike Service</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Daily Needs -->
+                            <div class="col-md-6">
+                                <div class="category-section">
+                                    <div class="category-title">Daily Needs</div>
+                                    <div class="row text-center justify-content-center">
+                                        <div class="col-6 col-md-3 category-item">
+                                            <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_movies.png?w=640&q=75" alt="Movies">
+                                            <p>Movies</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 category-item">
+                                            <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/grocery_rectangle_2024.webp?w=640&q=75" alt="Grocery">
+                                            <p>Grocery</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 category-item">
+                                            <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/electricians_rectangle_2024.webp?w=640&q=75" alt="Electricians">
+                                            <p>Electricians</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <section>
+                            <div class="container py-4">
+                                <!-- Bills & Recharge -->
+                                <div class="service-box">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h5><strong>Bills & Recharge</strong></h5>
+                                            <p class="text-muted">Pay your bills & recharge instantly with Justdial</p>
+                                            <a href="#" class="text-primary fw-semibold">Explore More</a>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row text-center">
+                                                <div class="col-4 col-md-2">
+                                                    <div class="icon-box">
+                                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_mobile.svg?w=128&q=75" alt="Mobile">
+                                                    </div>
+                                                    <p class="fw-medium">Mobile</p>
+                                                </div>
+                                                <div class="col-4 col-md-2">
+                                                    <div class="icon-box">
+                                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_electricity.svg?w=128&q=75" alt="Electricity">
+                                                    </div>
+                                                    <p class="fw-medium">Electricity</p>
+                                                </div>
+                                                <div class="col-4 col-md-2">
+                                                    <div class="icon-box">
+                                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_dth.svg?w=128&q=75" alt="DTH">
+                                                    </div>
+                                                    <p class="fw-medium">DTH</p>
+                                                </div>
+                                                <div class="col-4 col-md-2">
+                                                    <div class="icon-box">
+                                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_water.svg?w=128&q=75" alt="Water">
+                                                    </div>
+                                                    <p class="fw-medium">Water</p>
+                                                </div>
+                                                <div class="col-4 col-md-2">
+                                                    <div class="icon-box">
+                                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_gas.svg?w=128&q=75" alt="Gas">
+                                                    </div>
+                                                    <p class="fw-medium">Gas</p>
+                                                </div>
+                                                <div class="col-4 col-md-2">
+                                                    <div class="icon-box">
+                                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_insurance.svg?w=128&q=75" alt="Insurance">
+                                                    </div>
+                                                    <p class="fw-medium">Insurance</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Travel Bookings -->
+                                <div class="service-box">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h5><strong>Travel Bookings</strong></h5>
+                                            <p class="text-muted">Instant ticket bookings for your best travel experience</p>
+                                            <a href="#" class="text-primary fw-semibold">Explore More</a>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row text-center">
+                                                <div class="col-4 col-md-2">
+                                                    <div class="icon-box">
+                                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_flight.svg?w=128&q=75" alt="Flight">
+                                                    </div>
+                                                    <p class="fw-medium">Flight</p>
+                                                    <small class="highlight-green">Powered by Easemytrip.com</small>
+                                                </div>
+                                                <div class="col-4 col-md-2">
+                                                    <div class="icon-box">
+                                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_bus.svg?w=128&q=75" alt="Bus">
+                                                    </div>
+                                                    <p class="fw-medium">Bus</p>
+                                                    <small class="highlight-green">Affordable Rides</small>
+                                                </div>
+                                                <div class="col-4 col-md-2">
+                                                    <div class="icon-box">
+                                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_train.svg?w=128&q=75" alt="Train">
+                                                    </div>
+                                                    <p class="fw-medium">Train</p>
+                                                </div>
+                                                <div class="col-4 col-md-2">
+                                                    <div class="icon-box">
+                                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_hotels.svg?w=128&q=75" alt="Hotel">
+                                                    </div>
+                                                    <p class="fw-medium">Hotel</p>
+                                                    <small class="highlight-green">Budget-friendly Stay</small>
+                                                </div>
+                                                <div class="col-4 col-md-2">
+                                                    <div class="icon-box">
+                                                        <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_carhire.svg?w=128&q=75" alt="Car">
+                                                    </div>
+                                                    <p class="fw-medium">Car Rentals</p>
+                                                    <small class="highlight-green">Drive Easy Anywhere</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="container my-5">
+                                <!-- Title -->
+                                <div class="d-flex align-items-center mb-3">
+                                    <h4 class="fw-bold mb-0">Trending Searches Near You</h4>
+                                    <span class="badge bg-danger text-white ms-2">NEW</span>
+                                </div>
+                                <p class="text-muted mb-4">Stay updated with the latest local trends.</p>
+
+                                <!-- Card List -->
+                                <div class="row g-3 flex-nowrap overflow-auto" style="scroll-snap-type: x mandatory;">
+                                    <!-- Card 1 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="./img/archery-classes-1-archery-classes-1-l95om.avif" class="img-fluid rounded-start" alt="Archery Classes">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Archery Classes</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 2 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10948367.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Digital Marketing">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Digital Marketing Services</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 3 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10059338.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Building Contractors</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!--Card 4 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10104727.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Coffee Shops</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 5 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10925563.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Polytechnic Colleges</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 6 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/11250059.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Android Application Developers</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 7 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10080172.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Cardiologists</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 8 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/11123333.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Playgrounds</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 9 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10128276.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Construction Contractors</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 10 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/11123333.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Playgrounds</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="container my-5">
+                                <h4 class="fw-bold mb-3">Latest Movies & Review</h4>
+
+                                <div class="d-flex overflow-auto gap-3 pb-3">
+                                    <!-- Movie Card 1 -->
+                                    <div class="position-relative" style="min-width: 180px;">
+                                        <img src="https://images.jdmagicbox.com/movies/centralized_161987892025_06_06_05_14_13_220.jpg?w=2048&q=75" class="img-fluid movie-card" alt="image"/>
+                                        <div class="rating-badge">👍 80%</div>
+                                        <p class="fw-semibold mt-2 mb-0">Sitaare Zameen Par</p>
+                                        <small class="text-muted">Hindi • 2D</small>
+                                    </div>
+
+                                    <!-- Movie Card 2 -->
+                                    <div class="position-relative" style="min-width: 180px;">
+                                        <img src="https://images.jdmagicbox.com/movies/centralized_161833792025_06_12_01_40_24_220.jpg?w=2048&q=75" class="img-fluid movie-card" alt="image" />
+                                        <div class="rating-badge">👎 20%</div>
+                                        <p class="fw-semibold mt-2 mb-0">Maa (2025)</p>
+                                        <small class="text-muted">Hindi • 2D</small>
+                                    </div>
+
+                                    <!-- Movie Card 3 -->
+                                    <div class="position-relative" style="min-width: 180px;">
+                                        <img src="https://images.jdmagicbox.com/movies/centralized_161391492024_11_27_06_32_12_220.jpg?w=2048&q=75" class="img-fluid movie-card" alt="image"/>
+                                        <div class="rating-badge">👍 80%</div>
+                                        <p class="fw-semibold mt-2 mb-0">F1</p>
+                                        <small class="text-muted">English • 2D</small>
+                                    </div>
+
+                                    <!-- Movie Card 4 -->
+                                    <div class="position-relative" style="min-width: 180px;">
+                                        <img src="https://images.jdmagicbox.com/movies/centralized_161212992025_04_15_07_45_57_220.jpg?w=2048&q=75" class="img-fluid movie-card"  alt="image"/>
+                                        <div class="rating-badge">👍 80%</div>
+                                        <p class="fw-semibold mt-2 mb-0">Kannappa</p>
+                                        <small class="text-muted">Tamil • 2D</small>
+                                    </div>
+
+                                    <!-- Movie Card 5 -->
+                                    <div class="position-relative" style="min-width: 180px;">
+                                        <img src="https://images.jdmagicbox.com/movies/centralized_161999222025_05_23_04_22_20_220.jpg?w=2048&q=75" class="img-fluid movie-card" alt="Image" />
+                                        <div class="rating-badge">👍 60%</div>
+                                        <p class="fw-semibold mt-2 mb-0">Jarann</p>
+                                        <small class="text-muted">Marathi • 2D</small>
+                                    </div>
+
+                                    <!-- Movie Card 6 -->
+                                    <div class="position-relative" style="min-width: 180px;">
+                                        <img src="https://images.jdmagicbox.com/movies/centralized_161710302025_02_28_01_05_51_220.jpg?w=2048&q=75" class="img-fluid movie-card" alt="image"/>
+                                        <div class="rating-badge">👍 70%</div>
+                                        <p class="fw-semibold mt-2 mb-0">Jurassic World</p>
+                                        <small class="text-muted">English • 2D</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="container my-5">
+                                <!-- Title -->
+                                <div class="d-flex align-items-center mb-3">
+                                    <h4 class="fw-bold mb-0">Rainy Day Essentials</h4>
+                                    <span class="badge bg-danger text-white ms-2">SEASONAL</span>
+                                </div>
+                                <p class="text-muted mb-4">Discover wide range of rainy collection</p>
+
+                                <!-- Card List -->
+                                <div class="row g-3 flex-nowrap overflow-auto" style="scroll-snap-type: x mandatory;">
+                                    <!-- Card 1 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10378025.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Archery Classes">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Plumbers</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 2 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10533854.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Digital Marketing">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Waterproofing Contractors</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 3 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10472227.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Tarpaulin Dealers</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!--Card 4 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10274634.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Inverter Dealers</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 5 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10925563.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Polytechnic Colleges</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 6 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/11250059.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Android Application Developers</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 7 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10080172.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Cardiologists</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 8 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/11123333.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Playgrounds</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 9 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10128276.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Construction Contractors</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 10 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/11123333.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Playgrounds</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="container my-5">
+                                <!-- Title -->
+                                <div class="d-flex align-items-center mb-3">
+                                    <h4 class="fw-bold mb-0">Explore Top Tourist Places</h4>
+                                    <span class="badge bg-danger text-white ms-2">NEW</span>
+                                </div>
+
+                                <!-- Card List -->
+                                <div class="row g-3 flex-nowrap overflow-auto" style="scroll-snap-type: x mandatory;">
+                                    <!-- Card 1 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/Explorecities_Udaipur.png?t=1?w=256&q=75" class="img-fluid rounded-start" alt="Udaipur">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Udaipur</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 2 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/Explorecities_Ahmedabad.png?t=1?w=256&q=75" class="img-fluid rounded-start" alt="Ahemdabad">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Ahemdabad</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 3 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/Explorecities_Jaipur.png?t=1?w=256&q=75" class="img-fluid rounded-start" alt="jaipur">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Jaipur</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!--Card 4 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/Explorecities_Agra.png?t=1?w=256&q=75" class="img-fluid rounded-start" alt="Agra">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Agra</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 5 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10925563.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Polytechnic Colleges</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 6 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/11250059.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Android Application Developers</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 7 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10080172.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Cardiologists</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 8 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/11123333.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Playgrounds</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 9 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10128276.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Construction Contractors</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Card 10 -->
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="min-width: 250px;">
+                                        <div class="card h-100">
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-5">
+                                                    <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/11123333.jpg?w=256&q=75" class="img-fluid rounded-start" alt="Building Contractors">
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title fw-bold">Playgrounds</h6>
+                                                        <a href="#" class="card-link text-primary">Explore <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="container mt-5">
+                                <h2>Popular Searches</h2>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="card">
+                                            <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10422444.jpg?fit=around%7C350:350&crop=350:350;*,*" class="card-img-top" alt="Schools">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Schools</h5>
+                                                <a href="#" class="btn btn-custom">Enquire Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card">
+                                            <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10076456.jpg?fit=around%7C350:350&crop=350:350;*,*" class="card-img-top" alt="Car Rental">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Car Rental</h5>
+                                                <a href="#" class="btn btn-custom">Explore</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card">
+                                            <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10042247.jpg?fit=around%7C350:350&crop=350:350;*,*" class="card-img-top" alt="Beauty Parlours">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Beauty Parlours</h5>
+                                                <a href="#" class="btn btn-custom">Explore</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card">
+                                            <img src="https://content.jdmagicbox.com/comp/def_content/ncat_id/10892680.jpg?fit=around%7C350:350&crop=350:350;*,*" class="card-img-top" alt="General Physician Doctors">
+                                            <div class="card-body">
+                                                <h5 class="card-title">General Doctors</h5>
+                                                <a href="#" class="btn btn-custom">Explore</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="container my-4">
+                                <h2>Recent Activity</h2>
+                                <!-- Review Cards -->
+                                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+                                    <!-- Card 1 -->
+                                    <div class="col">
+                                        <div class="card h-100">
+                                            <img src="https://images.jdmagicbox.com/v2/comp/mumbai/q7/022pxx22.xx22.210211143811.n8q7/catalogue/kaya-kalp-international-health-clinics-dadar-west-mumbai-ayurvedic-clinics-0eatnyhg2q.jpg" class="card-img-top" alt="Logo">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <h5 class="card-title mb-1">Kayakalp International</h5>
+                                                    <span class="badge bg-success">WhatsApp</span>
+                                                </div>
+                                                <p class="reviewer">Pradeep Bachav</p>
+                                                <div class="stars">★★★★★</div>
+                                                <p>Main Kurla mein rahta hoon shaadi se pehle main aata tha. Bahut pareshan tha...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 2 -->
+                                    <div class="col">
+                                        <div class="card h-100">
+                                            <img src="https://images.jdmagicbox.com/v2/comp/mumbai/q7/022pxx22.xx22.210211143811.n8q7/catalogue/kaya-kalp-international-health-clinics-dadar-west-mumbai-ayurvedic-clinics-0eatnyhg2q.jpg" class="card-img-top" alt="Logo">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <h5 class="card-title mb-1">Dr. L. A. Dongarwar</h5>
+                                                    <span class="badge bg-success">WhatsApp</span>
+                                                </div>
+                                                <p class="reviewer">Pawan Jaiswal</p>
+                                                <div class="stars">★★★★★</div>
+                                                <p>Dr. Dongarwar is a great doctor! He helps with many health problems...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 3 -->
+                                    <div class="col">
+                                        <div class="card h-100">
+                                            <img src="https://images.jdmagicbox.com/v2/comp/mumbai/b8/022pxx22.xx22.220120114820.c3b8/catalogue/dr-l-a-dongarwar-md-ayurveda-sexologist-kalyan-west-kalyan-sexologist-doctors-opmm1g9u4d.jpg" class="card-img-top" alt="Clinic">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <h5 class="card-title mb-1">Dr. Suresh Patil's Clinic</h5>
+                                                    <span class="badge bg-success">WhatsApp</span>
+                                                </div>
+                                                <p class="reviewer">Dr. Rahul Yadav</p>
+                                                <div class="stars">★★★★★</div>
+                                                <p>I recently visited this clinic and had a great experience. The staff was friendly...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Load More Button -->
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-outline-primary">Load More</button>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center flex-wrap border-top pt-4 pb-3">
+                                    <div class="mb-2">
+                                        <span class="fw-semibold me-3">Follow us on</span>
+                                        <i class="fab fa-facebook text-primary fs-5 me-2"></i>
+                                        <i class="fab fa-youtube text-danger fs-5 me-2"></i>
+                                        <i class="fab fa-instagram text-danger fs-5 me-2"></i>
+                                        <i class="fab fa-linkedin text-primary fs-5 me-2"></i>
+                                        <i class="fab fa-x-twitter text-dark fs-5"></i>
+                                    </div>
+
+                                    <div class="d-flex gap-2">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" height="40" />
+                                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" height="40" />
+                                    </div>
+                                </div>
+
+                                <!-- Footer Category Links -->
+                                <div class="container pb-5 n_about">
+                                    <h6 class="fw-semibold mb-2">Popular Categories</h6>
+                                    <p class="text-muted small n_about2" style="line-height: 1.6;">
+                                        Body Massage Centers | Cinema Halls | Schools | Beauty Spas | Dermatologists | Hospitals | Malls | Gyms | Beauty Parlours | Estate Agents | Banquet Halls | ENT Doctors | Book Shops | Bike On Rent | Sexologist Doctors | Neurologists | Gynaecologist & Obstetrician Doctors | Train Ticket Booking Agents | Travel Agents | Paying Guest Accommodations | General Physician Doctors | Dentists | Orthopaedic Doctors | Chemists | Motor Training Schools | Gastroenterologists | Car Rental | Salons | Courier Services | Dance Classes | Pathology Labs | Taxi Services | Cake Shops | AC Repair & Services | Mobile Phone Dealers | Pet Shops | Dmart | Packers And Movers | Psychiatrists | Dharamshalas | Urologist Doctors | Bakeries | Bicycle Dealers | Coffee Shops | Paediatricians | Sonography Centres | Yoga Classes | Hostels | Cardiologists | Electrical Shops | Skin Care Clinics | Diagnostic Centres | Homeopathic Doctors | Physiotherapists | Photo Studios | Plumbers | Music Classes | Electricians | Sports Goods Dealers | Shoe Dealers | Hair Stylists | Gift Shops | Ophthalmologists | Car Repair & Services | Ayurvedic Doctors | Eye Clinics | Restaurants | Carpenters | Jewellery Showrooms | Cooks On Hire | Stationery Shops | Nephrologists | Caterers | Interior Designers | Rehabilitation Center | Grocery Stores | Banks | ATM | 5 Star Hotels | Hotels | Resorts | Plastic Surgeons | Smart Watch Dealers | Drug De Addiction Centres | Chinese Restaurants
+                                    </p>
+
+                                    <h6 class="fw-semibold mt-4 mb-2">Trending Searches</h6>
+                                    <p class="text-muted small n_about2" style="line-height: 1.6;">
+                                        Real Estate Agents | Book Shops | Aadhaar Card Agents | Yoga Classes | Estate Agents For Land | Prmjay Scheme Hospitals | Tutorials For IIT JEE | Mobile Phone Repair & Services-MI | Wrist Watch Dealers
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </main>
+            <footer class="n_tbdr">
+                <div class="container my-5 n_foot">
+                    <h5 class="mb-4 fw-semibold">Some of our services that will prove useful to you on a day-to-day basis are :</h5>
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                        <!-- B2B -->
+                        <div class="col">
+                            <div class="service-box">
+                                <i class="fa-solid fa-handshake"></i>
+                                <h6 class="mt-2">B2B</h6>
+                                <p class="mb-0">Experience the ultimate B2B portal by Justdial. You can explore countless diverse categories, innumerable top-quality vendors, and an unmatched wholesale experience. You'll find everything you need for B2B requirements on this exclusive platform. Our interactive interface allows you to apply relevant filters, ascertain the best rates, and get instant assistance via chat.</p>
+                            </div>
+                        </div>
+
+                        <!-- All India -->
+                        <div class="col">
+                            <div class="service-box">
+                                <i class="fa-solid fa-globe-asia"></i>
+                                <h6 class="mt-2">All India</h6>
+                                <p class="mb-0">Elevate your search for B2B requisites. From lead generation to promoting and selling products/services, Justdial enables enterprises to reach vast audiences all across India. Embracing digital strategies, Justdial India encompasses manufacturers, dealers, suppliers, vendors, wholesalers, and more, offering convenience in the B2B market space and empowering businesses nationwide.</p>
+                            </div>
+                        </div>
+
+                        <!-- Packers and Movers -->
+                        <div class="col">
+                            <div class="service-box">
+                                <i class="fa-solid fa-truck-moving"></i>
+                                <h6 class="mt-2">Packers and Movers</h6>
+                                <p class="mb-0">If you're relocating to another place, or even if you just want to send some belongings elsewhere, find the best deals on the most reliable packers and movers for your location. Get quotes from multiple agencies, read reviews from previous customers, and check ratings before making a selection for a hassle-free experience.</p>
+                            </div>
+                        </div>
+
+                        <!-- Order Food Online -->
+                        <div class="col">
+                            <div class="service-box">
+                                <i class="fa-solid fa-utensils"></i>
+                                <h6 class="mt-2">Order Food Online</h6>
+                                <p class="mb-0">You are just three clicks away from placing an order and exploring a wide range of exotic cuisines. Order food online with Justdial and get your favourite food delivered at your doorstep. Search for restaurants, view reviews and ratings, avail discounts and order your food.</p>
+                            </div>
+                        </div>
+
+                        <!-- Jobs -->
+                        <div class="col">
+                            <div class="service-box">
+                                <i class="fa-solid fa-briefcase"></i>
+                                <h6 class="mt-2">Jobs</h6>
+                                <p class="mb-0">Providing pertinent jobs to job seekers and relevant profiles to employers, this service will help you reach out to employers and vice-versa across industry verticals, experience levels and geographies.</p>
+                            </div>
+                        </div>
+
+                        <!-- Movies -->
+                        <div class="col">
+                            <div class="service-box">
+                                <i class="fa-solid fa-film"></i>
+                                <h6 class="mt-2">Movies</h6>
+                                <p class="mb-0">This gives you access to book tickets and keep updated with the latest movies. With the provision of a synopsis, cast, crew and trailer, you can make a better choice in the movie you would like to watch.</p>
+                            </div>
+                        </div>
+
+                        <!-- Spa & Salon -->
+                        <div class="col">
+                            <div class="service-box">
+                                <i class="fa-solid fa-spa"></i>
+                                <h6 class="mt-2">Spa & Salon</h6>
+                                <p class="mb-0">Skip the wait to get pampered at a spa or a salon. In a few clicks, 'Book an Appointment' online through Justdial before your next visit.</p>
+                            </div>
+                        </div>
+
+                        <!-- Repair & Services -->
+                        <div class="col">
+                            <div class="service-box">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                                <h6 class="mt-2">Repair & Services</h6>
+                                <p class="mb-0">Find the 'Best Deal', be it for repairing your air-conditioner, getting your car serviced or cleaning your water purifier and drive your utility problems away.</p>
+                            </div>
+                        </div>
+
+                        <!-- Doctor Appointment -->
+                        <div class="col">
+                            <div class="service-box">
+                                <i class="fa-solid fa-user-doctor"></i>
+                                <h6 class="mt-2">Doctor Appointment</h6>
+                                <p class="mb-0">Find the suitable medical specialist to take care of your health and well-being. Healthcare made easy.</p>
+                            </div>
+                        </div>
+
+                    </div>   
+
+                    <section>
+                        <div class="content n_about">
+                            <h6 class="n_about2">One-Stop for All Local Businesses, Services, & Stores Nearby Across India</h6>
+                            <p class="n_about2">Welcome to Justdial, your 'one stop shop' where you are assisted with day-to-day and exclusive planning and purchasing activities. We take pride in our iconic customer support number, 8888888888, and the fact that we own a strong hold on local business information pan India.</p>
+                            <p class="n_about2">Our service extends from providing address and contact details of business establishments around the country, to making orders and reservations for leisure, medical, financial, travel and domestic purposes. We enlist business information across varied sectors like Hotels, Restaurants, Auto Care, Home Decor, Personal and Pet Care, Fitness, Insurance, Real Estate, Sports, Schools, etc. from all over the country. Holding information right from major cities like Mumbai, Delhi, Bangalore, Hyderabad, Chennai, Ahmedabad and Pune our reach stretches out to other smaller cities across the country too.</p>
+                            <p class="n_about2">Our 'Free Listing' feature gives a platform to showcase varied specialities. We then furnish you with the information via phone, SMS, web, App and WAP as well as, create a space for you to share your experiences through our 'Rate & Review' feature. Through the 'Best Deals', 'Last Minute Deals' and 'Live Quotes', we make sure that you are offered the best bargains in the market.</p>
+                        </div>
+                    </section> 
+                    <!-- Footer Category Links -->
+                    <div class="container pb-5 large-spacing">
+                        <h6 class="fw-semibold mb-2 n_about">Popular Categories</h6>
+                        <p class="text-muted small n_about2" style="line-height: 1.6;">
+                            Body Massage Centers | Cinema Halls | Schools | Beauty Spas | Dermatologists | Hospitals | Malls | Gyms | Beauty Parlours | Estate Agents | Banquet Halls | ENT Doctors | Book Shops | Bike On Rent | Sexologist Doctors | Neurologists | Gynaecologist & Obstetrician Doctors | Train Ticket Booking Agents | Travel Agents | Paying Guest Accommodations | General Physician Doctors | Dentists | Orthopaedic Doctors | Chemists | Motor Training Schools | Gastroenterologists | Car Rental | Salons | Courier Services | Dance Classes | Pathology Labs | Taxi Services | Cake Shops | AC Repair & Services | Mobile Phone Dealers | Pet Shops | Dmart | Packers And Movers | Psychiatrists | Dharamshalas | Urologist Doctors | Bakeries | Bicycle Dealers | Coffee Shops | Paediatricians | Sonography Centres | Yoga Classes | Hostels | Cardiologists | Electrical Shops | Skin Care Clinics | Diagnostic Centres | Homeopathic Doctors | Physiotherapists | Photo Studios | Plumbers | Music Classes | Electricians | Sports Goods Dealers | Shoe Dealers | Hair Stylists | Gift Shops | Ophthalmologists | Car Repair & Services | Ayurvedic Doctors | Eye Clinics | Restaurants | Carpenters | Jewellery Showrooms | Cooks On Hire | Stationery Shops | Nephrologists | Caterers | Interior Designers | Rehabilitation Center | Grocery Stores | Banks | ATM | 5 Star Hotels | Hotels | Resorts | Plastic Surgeons | Smart Watch Dealers | Drug De Addiction Centres | Chinese Restaurants
+                        </p>
+
+                        <h6 class="fw-semibold mt-4 mb-2 n_about">Trending Searches</h6>
+                        <p class="text-muted small n_about2" style="line-height: 1.6;">
+                            Real Estate Agents | Book Shops | Aadhaar Card Agents | Yoga Classes | Estate Agents For Land | Prmjay Scheme Hospitals | Tutorials For IIT JEE | Mobile Phone Repair & Services-MI | Wrist Watch Dealers
+                        </p>
+
+                        <h6 class="fw-semibold n_about">Trending Searches</h6>
+                        <p class="text-muted small n_about2">
+                            Real Estate Agents | Book Shops | Aadhaar Card Agents | Yoga Classes | Estate Agents For Land | Pmjay Scheme Hospitals | Tutorials For IIT JEE | Mobile Phone Repair & Services-MI | Wrist Watch Dealers |
+                            Education Consultants | Battery Operated Scooter Dealers–OLA | Entertainment Centres | DTH TV Providers–Sun Direct | AC Repair & Services–Blue Star | Simcard Dealers–Jio | MPSC Tutorials |
+                            Shoe Dealers–Nike | Tirupati Ticketing Services | Bitcoin Services | Lawyers For District Court | Ayushman Bharat Yojana | Lawyers For Supreme Court | Taxi Services For Inter City | BPSC Tutorials |
+                            Courier Services For Canada | BEST Enquiry | Courier Services For Dubai | Demat Account Services | Automobile Part Dealers | Mutual Fund Agents | Courier Services For Surat |
+                            Tutorials For MHT CET
+                        </p>
+
+                        <!-- Deals and Offers -->
+                        <h6 class="fw-semibold mt-4 n_about">Deals and Offers</h6>
+                        <p class="text-muted small n_about2">
+                            Kotak Mahindra Banks | INOX Cinemas | Canara Banks | Ratnakar Banks | PVR Cinemas | ICICI Banks | HDFC Banks | AU Small Finance Bank | Axis Banks | IDFC First Banks |
+                            Sony | Yes Banks | Crama | Dell Stores | Beverly Hills Polo Club | Jayalukkas Jewellery | Flying Machine | Anytime Fitness | Toni&Guy Salons | Barbeque Nation |
+                            McDonalds | Sweet Truth Cakes | ALDO Stores | Helios | Max Stores | Wrangler | Levi's | Apple Store | Oppo Exclusive Showroom | Federal Banks | DBS Banks
+                        </p>
+
+                        <!-- Explore JD Collections -->
+                        <h6 class="fw-semibold mt-4 n_about">Explore JD Collections</h6>
+                        <p class="text-muted small n_about2">
+                            Travel & Tourism | Beauty & Fashion | Health & Fitness | Food & Beverage | Finance | On Demand Services | Home & Living | Education & Career | Recreation | JD Business Guide
+                        </p>
+
+                        <!-- Popular Cities -->
+                        <h6 class="fw-semibold mt-4 n_about">Popular Cities</h6>
+                        <p class="text-muted small n_about2">
+                            Bangalore | Mumbai | Chennai | Delhi | Hyderabad | Pune | Ahmedabad | Lucknow | Patna | Jaipur | Indore | Kochi | Kolkata | Coimbatore | Nagpur | Ludhiana | Agra |
+                            Bhubaneshwar | Bhopal | Guwahati | Surat | Madurai | Visakhapatnam | Sonepat | Vadodara | Meerut | Varanasi | Noida | Chandigarh | Vijayawada | Durgapur | Srinagar |
+                            Nashik | Panipat | Jammu | Jodhpur | Udaipur | Thane | Amritsar | Jabalpur
+                        </p>
+                    </div>
+
+                    <div class="container py-5 border-top">
+                        <div class="row">
+
+                            <!-- Quick Links -->
+                            <div class="col-12 col-md-3 mb-4">
+                                <h6 class="fw-semibold n_about">Quick Links</h6>
+                                <ul class="list-unstyled small text-muted n_about2">
+                                    <li><a href="#" class="text-decoration-none text-muted">About us</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">Investor Relations</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">We're hiring</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">Customer Care</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">Free Listing</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">What's New</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">Report a Bug</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">B2B Sitemap</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">Sitemap</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">Advertise</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">Media</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">Testimonials</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">Feedback</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">Business Badge</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">JD Collection</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">Client Success Videos</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">B2B India Sitemap</a></li>
+                                    <li><a href="#" class="text-decoration-none text-muted">Return & Exchange Policy</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- JD Verticals -->
+                            <div class="col-12 col-md-9">
+                                <h6 class="fw-semibold n_about">JD Verticals</h6>
+                                <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-2 small text-muted n_about2">
+                                    <div class="col">B2B</div>
+                                    <div class="col">Advertising & PR</div>
+                                    <div class="col">All India</div>
+                                    <div class="col">Doctors</div>
+                                    <div class="col">Bills & Recharge</div>
+                                    <div class="col">Accommodation</div>
+                                    <div class="col">Beauty & Personal Care</div>
+                                    <div class="col">Agriculture</div>
+                                    <div class="col">Apparel</div>
+                                    <div class="col">Astrology</div>
+                                    <div class="col">Chemicals</div>
+                                    <div class="col">Construction & Real Estate</div>
+                                    <div class="col">Education</div>
+                                    <div class="col">Electronics</div>
+                                    <div class="col">Engineering</div>
+                                    <div class="col">Entertainment</div>
+                                    <div class="col">Events & Wedding</div>
+                                    <div class="col">Furniture</div>
+                                    <div class="col">Jewellery</div>
+                                    <div class="col">Home & Garden</div>
+                                    <div class="col">Housekeeping</div>
+                                    <div class="col">Industrial Plants</div>
+                                    <div class="col">IT Components</div>
+                                    <div class="col">Food & Beverage</div>
+                                    <div class="col">Health & Medical</div>
+                                    <div class="col">Luggage & Bags</div>
+                                    <div class="col">Office Supplies</div>
+                                    <div class="col">Packaging & Printing</div>
+                                    <div class="col">Pet & Pet Supplies</div>
+                                    <div class="col">Placements</div>
+                                    <div class="col">Lights & Lighting</div>
+                                    <div class="col">Restaurant</div>
+                                    <div class="col">Rubber & Plastics</div>
+                                    <div class="col">Security & Protection</div>
+                                    <div class="col">Textile & Leather</div>
+                                    <div class="col">Transportation</div>
+                                    <div class="col">Travel</div>
+                                    <div class="col">Watches & Eyewear</div>
+                                    <div class="col">Toys & Games</div>
+                                    <div class="col">Sports & Entertainment</div>
+                                    <div class="col">Public</div>
+                                    <div class="col">Cricket</div>
+                                    <div class="col">Automobiles</div>
+                                    <div class="col">Electronic Component</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        window.onload = function () {
+            const topTexts = [
+                "'5.9 Crore + Product & Services",
+                "'4.7 Crore + Business"
+            ];
+
+            let topIndex = 0;
+            const rotatingText = document.getElementById("rotatingText");
+
+            setInterval(() => {
+                topIndex = (topIndex + 1) % topTexts.length;
+                rotatingText.textContent = topTexts[topIndex];
+            }, 1000);
+
+            const rotatingWords = [
+                "Packers and Movers",
+                "Restaurants",
+                "Doctors",
+                "Electricians",
+                "Plumbers"
+            ];
+
+            let searchIndex = 0;
+            const input = document.getElementById("searchInput");
+
+            setInterval(() => {
+                searchIndex = (searchIndex + 1) % rotatingWords.length;
+                input.setAttribute("placeholder", "Search for " + rotatingWords[searchIndex]);
+            }, 1000);
+        };
+
+        window.addEventListener("DOMContentLoaded", function () {
+            const header = document.getElementById('header');
+            const wrapper = document.getElementById('searchLocationWrapper');
+            const hiringElements = document.querySelectorAll('.n_wearehiring');
+
+            // ✅ Save original parent and sibling
+            const originalParent = wrapper.parentNode;
+            const originalNextSibling = wrapper.nextElementSibling;
+
+            let isInHeader = false;
+
+            window.addEventListener("scroll", () => {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const windowHeight = window.innerHeight;
+                const docHeight = document.documentElement.scrollHeight;
+
+                const scrollPercent = (scrollTop / (docHeight - windowHeight)) * 100;
+
+                if (scrollPercent >= 2) {
+                    hiringElements.forEach(el => el.classList.add('invisible-hide'));
+
+                    if (!isInHeader) {
+                        header.appendChild(wrapper);
+                        wrapper.classList.add("fixed-header");
+                        isInHeader = true;
+                    }
+                } else {
+                    hiringElements.forEach(el => el.classList.remove('invisible-hide'));
+
+                    if (isInHeader) {
+                        // ✅ Re-insert at original position
+                        if (originalNextSibling) {
+                            originalParent.insertBefore(wrapper, originalNextSibling);
+                        } else {
+                            originalParent.appendChild(wrapper);
+                        }
+
+                        wrapper.classList.remove("fixed-header");
+                        isInHeader = false;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
